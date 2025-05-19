@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace supermecadoelectronico.CLASES
 {
-    public abstract class Productos
+    public class Productos
     {
         public int IDProductos { get; set; }
         public string Marca { get; set; }
@@ -14,6 +14,7 @@ namespace supermecadoelectronico.CLASES
         public decimal Precio { get; set; }
         public int Catidad { get; set; }
 
+        public Productos() { }
 
         public Productos(int IDproductos, string marca, string modelo, decimal precio, int cantidad)
         {
@@ -23,11 +24,11 @@ namespace supermecadoelectronico.CLASES
             }
             if (string.IsNullOrWhiteSpace(modelo))
             {
-                throw new ArgumentException("el numero base debe ser mayor a 0");
+                throw new ArgumentException("el modelo no puede estar vacio");
             }
             if (precio <= 0)
             {
-                throw new ArgumentException("el nuemro de base debe ser mayor a 0");
+                throw new ArgumentException("el precio de base debe ser mayor a 0");
             }
             if (cantidad <= 0)
             {
@@ -39,8 +40,6 @@ namespace supermecadoelectronico.CLASES
             Precio = precio;
             Catidad = cantidad;
         }
-
-        public abstract double CalcularCostoTotal();
 
     }
 }

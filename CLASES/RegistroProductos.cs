@@ -30,9 +30,6 @@ namespace supermecadoelectronico.CLASES
             }
         }
 
-        public void AgregarPedido(Productos productos)
-        {
-            Inventario.Add(productos);
-        }
+       
     }
 }

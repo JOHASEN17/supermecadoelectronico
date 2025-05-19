@@ -7,7 +7,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace supermecadoelectronico.CLASES.repositorios
+namespace supermecadoelectronico.CLASES.utils
+
 {
     public sealed class dbConexionsingleton
     {

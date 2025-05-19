@@ -48,21 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASES\dbConexionsingleton.cs" />
+    <Compile Include="CLASES\Usuario.cs" />
+    <Compile Include="CLASES\Utils\dbConexionsingleton.cs" />
     <Compile Include="CLASES\repositorios\IProductoRepository.cs" />
     <Compile Include="CLASES\repositorios\ProductoRepository.cs" />
     <Compile Include="CLASES\Productos.cs" />
     <Compile Include="CLASES\RegistroProductos.cs" />
+    <Compile Include="CLASES\services\AuthService.cs" />
+    <Compile Include="CLASES\Utils\sesionUsuario.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
