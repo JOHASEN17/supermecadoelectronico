@@ -22,7 +22,8 @@ namespace supermecadoelectronico.CLASES
         public List<Productos> ObtenerTodos()
         {
             var lista = new List<Productos>();
-            var cmd = new SqlCommand("SELECT * FROM PRODUCTOS", _conexion);
+            var cmd = new SqlCommand("sp_ListarProductos", _conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
 
             _conexion.Open();
             var reader = cmd.ExecuteReader();
@@ -30,11 +31,11 @@ namespace supermecadoelectronico.CLASES
             {
                 lista.Add(new Productos
                 {
-                    IDProductos = Convert.ToInt32(reader["IDPRODUCTO"]),
+                    IDProductos = Convert.ToInt32(reader["PRODUCTOID"]),
                     Marca = reader["MARCA"].ToString(),
                     Modelo = reader["MODELO"].ToString(),
                     Precio = Convert.ToDecimal(reader["PRECIO"]),
-                    Cantidad = Convert.ToInt32(reader["CANTIDAD"])
+                    Cantidad = Convert.ToInt32(reader["CANTIDADINVENTARIO"])
                 });
             }
             _conexion.Close();
@@ -43,15 +44,13 @@ namespace supermecadoelectronico.CLASES
 
         public void Insertar(Productos producto)
         {
-            var cmd = new SqlCommand(@"
-            INSERT INTO PRODUCTOS (PRODUCTOID, MARCA, MODELO, PRECIO, CANTIDADINVENTARIO)
-            VALUES (@ID, @Marca, @Modelo, @Precio, @Cantidad)", _conexion);
-
-            cmd.Parameters.AddWithValue("@ID", producto.IDProductos);
-            cmd.Parameters.AddWithValue("@Marca", producto.Marca);
-            cmd.Parameters.AddWithValue("@Modelo", producto.Modelo);
-            cmd.Parameters.AddWithValue("@Precio", producto.Precio);
-            cmd.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
+            var cmd = new SqlCommand("sp_InsertarProducto", _conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@PRODUCTOID", producto.IDProductos);
+            cmd.Parameters.AddWithValue("@MARCA", producto.Marca);
+            cmd.Parameters.AddWithValue("@MODELO", producto.Modelo);
+            cmd.Parameters.AddWithValue("@PRECIO", producto.Precio);
+            cmd.Parameters.AddWithValue("@CANTIDAD", producto.Cantidad);
 
             _conexion.Open();
             cmd.ExecuteNonQuery();
@@ -60,16 +59,13 @@ namespace supermecadoelectronico.CLASES
 
         public void Actualizar(Productos producto)
         {
-            var cmd = new SqlCommand(@"
-            UPDATE PRODUCTOS 
-            SET MARCA = @Marca, MODELO = @Modelo, PRECIO = @Precio, CANTIDADINVENTARIO = @Cantidad
-            WHERE PRODUCTOID = @ID", _conexion);
-
-            cmd.Parameters.AddWithValue("@ID", producto.IDProductos);
-            cmd.Parameters.AddWithValue("@Marca", producto.Marca);
-            cmd.Parameters.AddWithValue("@Modelo", producto.Modelo);
-            cmd.Parameters.AddWithValue("@Precio", producto.Precio);
-            cmd.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
+            var cmd = new SqlCommand("sp_ActualizarProducto", _conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@PRODUCTOID", producto.IDProductos);
+            cmd.Parameters.AddWithValue("@MARCA", producto.Marca);
+            cmd.Parameters.AddWithValue("@MODELO", producto.Modelo);
+            cmd.Parameters.AddWithValue("@PRECIO", producto.Precio);
+            cmd.Parameters.AddWithValue("@CANTIDAD", producto.Cantidad);
 
             _conexion.Open();
             cmd.ExecuteNonQuery();
@@ -78,8 +74,9 @@ namespace supermecadoelectronico.CLASES
 
         public void Eliminar(int id)
         {
-            var cmd = new SqlCommand("DELETE FROM PRODUCTOS WHERE PRODUCTOID = @ID", _conexion);
-            cmd.Parameters.AddWithValue("@ID", id);
+            var cmd = new SqlCommand("sp_EliminarProducto", _conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@PRODUCTOID", id);
 
             _conexion.Open();
             cmd.ExecuteNonQuery();
