@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             this.txtmarca = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.txtcantidad = new System.Windows.Forms.TextBox();
             this.MARCA = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVerReportes = new System.Windows.Forms.Button();
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblModo = new System.Windows.Forms.Label();
+            this.dtgProductos = new System.Windows.Forms.DataGridView();
+            this.btnlimpiar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtmarca
@@ -51,19 +54,19 @@
             this.txtmarca.Size = new System.Drawing.Size(100, 22);
             this.txtmarca.TabIndex = 0;
             // 
-            // textBox2
+            // txtModelo
             // 
-            this.textBox2.Location = new System.Drawing.Point(320, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtModelo.Location = new System.Drawing.Point(320, 172);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(100, 22);
+            this.txtModelo.TabIndex = 1;
             // 
-            // textBox3
+            // txtcantidad
             // 
-            this.textBox3.Location = new System.Drawing.Point(320, 234);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 2;
+            this.txtcantidad.Location = new System.Drawing.Point(320, 234);
+            this.txtcantidad.Name = "txtcantidad";
+            this.txtcantidad.Size = new System.Drawing.Size(100, 22);
+            this.txtcantidad.TabIndex = 2;
             // 
             // MARCA
             // 
@@ -101,12 +104,12 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "PRECIO";
             // 
-            // textBox1
+            // txtPrecio
             // 
-            this.textBox1.Location = new System.Drawing.Point(320, 303);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 6;
+            this.txtPrecio.Location = new System.Drawing.Point(320, 303);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(100, 22);
+            this.txtPrecio.TabIndex = 6;
             // 
             // label4
             // 
@@ -125,6 +128,7 @@
             this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnVerReportes
             // 
@@ -143,6 +147,7 @@
             this.btnAgregarProveedor.TabIndex = 12;
             this.btnAgregarProveedor.Text = "AGREGAR";
             this.btnAgregarProveedor.UseVisualStyleBackColor = true;
+            this.btnAgregarProveedor.Click += new System.EventHandler(this.btnAgregarProveedor_Click);
             // 
             // btnActualizar
             // 
@@ -152,6 +157,7 @@
             this.btnActualizar.TabIndex = 13;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // lblModo
             // 
@@ -161,11 +167,34 @@
             this.lblModo.Size = new System.Drawing.Size(0, 16);
             this.lblModo.TabIndex = 14;
             // 
+            // dtgProductos
+            // 
+            this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProductos.Location = new System.Drawing.Point(494, 66);
+            this.dtgProductos.Name = "dtgProductos";
+            this.dtgProductos.RowHeadersWidth = 51;
+            this.dtgProductos.RowTemplate.Height = 24;
+            this.dtgProductos.Size = new System.Drawing.Size(457, 259);
+            this.dtgProductos.TabIndex = 15;
+            this.dtgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProductos_CellContentClick);
+            // 
+            // btnlimpiar
+            // 
+            this.btnlimpiar.Location = new System.Drawing.Point(722, 388);
+            this.btnlimpiar.Name = "btnlimpiar";
+            this.btnlimpiar.Size = new System.Drawing.Size(123, 30);
+            this.btnlimpiar.TabIndex = 16;
+            this.btnlimpiar.Text = "LIMPIAR";
+            this.btnlimpiar.UseVisualStyleBackColor = true;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 485);
+            this.Controls.Add(this.btnlimpiar);
+            this.Controls.Add(this.dtgProductos);
             this.Controls.Add(this.lblModo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregarProveedor);
@@ -173,16 +202,17 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MARCA);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtcantidad);
+            this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.txtmarca);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,19 +221,21 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtmarca;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.Label MARCA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnVerReportes;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblModo;
+        private System.Windows.Forms.DataGridView dtgProductos;
+        private System.Windows.Forms.Button btnlimpiar;
     }
 }
 

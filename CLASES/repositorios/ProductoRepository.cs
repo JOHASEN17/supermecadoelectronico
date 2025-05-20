@@ -8,9 +8,9 @@ using System.Data;
 using System.Configuration;
 using supermecadoelectronico.CLASES.utils;
 
-namespace supermecadoelectronico.CLASES
+namespace supermecadoelectronico.CLASES.repositorios
 {
-    public class ProductoRepository
+    public class ProductoRepository : IProductoRepository
     {
         private readonly SqlConnection _conexion;
 

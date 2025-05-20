@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace supermecadoelectronico.CLASES
+namespace supermecadoelectronico.CLASES.repositorios
 {
     public interface IProductoRepository
     {

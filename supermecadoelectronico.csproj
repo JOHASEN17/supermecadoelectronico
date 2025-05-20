@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="CLASES\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="CLASES\Usuario.cs" />
     <Compile Include="CLASES\Utils\dbConexionsingleton.cs" />
     <Compile Include="CLASES\repositorios\IProductoRepository.cs" />
