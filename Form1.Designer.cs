@@ -41,6 +41,7 @@
             this.btnVerReportes = new System.Windows.Forms.Button();
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.lblModo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtmarca
@@ -152,11 +153,20 @@
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
+            // lblModo
+            // 
+            this.lblModo.AutoSize = true;
+            this.lblModo.Location = new System.Drawing.Point(734, 9);
+            this.lblModo.Name = "lblModo";
+            this.lblModo.Size = new System.Drawing.Size(0, 16);
+            this.lblModo.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 485);
+            this.Controls.Add(this.lblModo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregarProveedor);
             this.Controls.Add(this.btnVerReportes);
@@ -193,6 +203,7 @@
         private System.Windows.Forms.Button btnVerReportes;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Label lblModo;
     }
 }
 

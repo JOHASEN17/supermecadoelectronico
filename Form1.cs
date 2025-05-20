@@ -35,6 +35,10 @@ namespace supermecadoelectronico
                 // O deshabilitarlos si prefieres:
                 // btnEliminar.Enabled = false;
                 // btnActualizar.Enabled = false;
+
+                lblModo.Text = esAdmin ? "Modo Administrador" : "Modo Empleado";
+                lblModo.ForeColor = esAdmin ? Color.Green : Color.DarkOrange;
+
             }
         }
 
