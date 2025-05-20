@@ -46,7 +46,7 @@ namespace supermecadoelectronico.CLASES.repositorios
         {
             var cmd = new SqlCommand("sp_InsertarProducto", _conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PRODUCTOID", producto.IDProductos);
+            //cmd.Parameters.AddWithValue("@PRODUCTOSID", producto.IDProductos);
             cmd.Parameters.AddWithValue("@MARCA", producto.Marca);
             cmd.Parameters.AddWithValue("@MODELO", producto.Modelo);
             cmd.Parameters.AddWithValue("@PRECIO", producto.Precio);

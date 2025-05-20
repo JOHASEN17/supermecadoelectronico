@@ -172,7 +172,7 @@ namespace supermecadoelectronico
                         txtmarca.Text = reader["Marca"].ToString();
                         txtModelo.Text = reader["Modelo"].ToString();
                         txtPrecio.Text = reader["Precio"].ToString();
-                        txtcantidad.Text = reader["cantidad"].ToString();
+                        txtcantidad.Text = reader["cantidadinventario"].ToString();
                     }
                     else
                     {
@@ -187,5 +187,11 @@ namespace supermecadoelectronico
                 MessageBox.Show("Ingrese un ID válido.");
             }
         }
+
+        private void btnVerReportes_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

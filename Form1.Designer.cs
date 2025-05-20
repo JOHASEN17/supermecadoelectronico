@@ -141,6 +141,7 @@
             this.btnVerReportes.TabIndex = 11;
             this.btnVerReportes.Text = "REPORTES";
             this.btnVerReportes.UseVisualStyleBackColor = true;
+            this.btnVerReportes.Click += new System.EventHandler(this.btnVerReportes_Click);
             // 
             // btnAgregarProveedor
             // 
