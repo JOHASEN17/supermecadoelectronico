@@ -106,7 +106,16 @@ namespace supermecadoelectronico
             {
                 sesionUsuario.Actual = usuario;
                 this.Hide();
-                new  Form1().Show();
+
+                // Redirige según el rol
+                if (usuario.Rol == "Admin")
+                {
+                    new Form1(true).Show(); // acceso completo
+                }
+                else if (usuario.Rol == "Empleado")
+                {
+                    new Form1(false).Show(); // acceso limitado
+                }
             }
             else
             {

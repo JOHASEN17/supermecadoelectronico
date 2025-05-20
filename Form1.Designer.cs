@@ -37,7 +37,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnVerReportes = new System.Windows.Forms.Button();
+            this.btnAgregarProveedor = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtmarca
@@ -113,22 +116,51 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "PEDIDOS ";
             // 
-            // button1
+            // btnEliminar
             // 
-            this.button1.Location = new System.Drawing.Point(385, 396);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnEliminar.Location = new System.Drawing.Point(144, 388);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(123, 30);
+            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnVerReportes
+            // 
+            this.btnVerReportes.Location = new System.Drawing.Point(573, 388);
+            this.btnVerReportes.Name = "btnVerReportes";
+            this.btnVerReportes.Size = new System.Drawing.Size(123, 30);
+            this.btnVerReportes.TabIndex = 11;
+            this.btnVerReportes.Text = "REPORTES";
+            this.btnVerReportes.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarProveedor
+            // 
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(426, 388);
+            this.btnAgregarProveedor.Name = "btnAgregarProveedor";
+            this.btnAgregarProveedor.Size = new System.Drawing.Size(123, 30);
+            this.btnAgregarProveedor.TabIndex = 12;
+            this.btnAgregarProveedor.Text = "AGREGAR";
+            this.btnAgregarProveedor.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(288, 388);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(123, 30);
+            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.Text = "ACTUALIZAR";
+            this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 485);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnAgregarProveedor);
+            this.Controls.Add(this.btnVerReportes);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -157,7 +189,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnVerReportes;
+        private System.Windows.Forms.Button btnAgregarProveedor;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
 

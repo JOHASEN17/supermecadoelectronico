@@ -12,10 +12,33 @@ namespace supermecadoelectronico
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private bool esAdmin;
+
+        public Form1(bool esAdmin)
         {
             InitializeComponent();
+            this.esAdmin = esAdmin;
+
+            AplicarPermisos();
         }
+
+        private void AplicarPermisos()
+        {
+            if (!esAdmin)
+            {
+                // Ocultar o deshabilitar funciones que solo un administrador puede usar
+                btnEliminar.Visible = false;
+                btnActualizar.Visible = false;
+                btnAgregarProveedor.Visible = false;
+                btnVerReportes.Visible = false;
+
+                // O deshabilitarlos si prefieres:
+                // btnEliminar.Enabled = false;
+                // btnActualizar.Enabled = false;
+            }
+        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
