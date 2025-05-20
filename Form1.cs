@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using supermecadoelectronico.CLASES.utils;
 
 namespace supermecadoelectronico
 {
@@ -46,7 +48,7 @@ namespace supermecadoelectronico
                 btnEliminar.Visible = false;
                 btnActualizar.Visible = false;
                 btnAgregarProveedor.Visible = false;
-                btnVerReportes.Visible = false;
+                btnVerReportes.Visible = true;
 
                 // O deshabilitarlos si prefieres:
                 // btnEliminar.Enabled = false;
@@ -148,7 +150,41 @@ namespace supermecadoelectronico
                 txtmarca.Text = fila.Cells["Marca"].Value.ToString();
                 txtModelo.Text = fila.Cells["modelo"].Value.ToString();
                 txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
-                txtcantidad.Text = fila.Cells["Stock"].Value.ToString();
+                txtcantidad.Text = fila.Cells["cantidad"].Value.ToString();
+            }
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (int.TryParse(txtbuscar.Text, out id))
+            {
+                using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCTOS WHERE PRODUCTOID = @id", conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        txtmarca.Text = reader["Marca"].ToString();
+                        txtModelo.Text = reader["Modelo"].ToString();
+                        txtPrecio.Text = reader["Precio"].ToString();
+                        txtcantidad.Text = reader["cantidad"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Producto no encontrado.");
+                    }
+
+                    reader.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un ID válido.");
             }
         }
     }

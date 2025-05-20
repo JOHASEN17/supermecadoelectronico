@@ -26,9 +26,9 @@ namespace supermecadoelectronico.CLASES.services
             {
                 var user = new Usuario
                 {
-                    IdUsuario = (int)reader["IdUsuario"],
-                    NombreUsuario = reader["Usuario"].ToString(),
-                    Rol = reader["NombreRol"].ToString()
+                    IdUsuario = (int)reader["USUARIOID"],
+                    NombreUsuario = reader["USERNAME"].ToString(),  
+                    Rol = reader["ROL"].ToString()
                 };
                 conn.Close();
                 return user;

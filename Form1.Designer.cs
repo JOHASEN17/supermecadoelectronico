@@ -44,6 +44,9 @@
             this.lblModo = new System.Windows.Forms.Label();
             this.dtgProductos = new System.Windows.Forms.DataGridView();
             this.btnlimpiar = new System.Windows.Forms.Button();
+            this.btnbuscar = new System.Windows.Forms.Button();
+            this.txtbuscar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,11 +191,40 @@
             this.btnlimpiar.UseVisualStyleBackColor = true;
             this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             // 
+            // btnbuscar
+            // 
+            this.btnbuscar.Location = new System.Drawing.Point(877, 388);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(123, 30);
+            this.btnbuscar.TabIndex = 17;
+            this.btnbuscar.Text = "BUSCAR";
+            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
+            // 
+            // txtbuscar
+            // 
+            this.txtbuscar.Location = new System.Drawing.Point(77, 109);
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.Size = new System.Drawing.Size(100, 22);
+            this.txtbuscar.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(74, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "buscar por id";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 485);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtbuscar);
+            this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.dtgProductos);
             this.Controls.Add(this.lblModo);
@@ -236,6 +268,9 @@
         private System.Windows.Forms.Label lblModo;
         private System.Windows.Forms.DataGridView dtgProductos;
         private System.Windows.Forms.Button btnlimpiar;
+        private System.Windows.Forms.Button btnbuscar;
+        private System.Windows.Forms.TextBox txtbuscar;
+        private System.Windows.Forms.Label label5;
     }
 }
 
