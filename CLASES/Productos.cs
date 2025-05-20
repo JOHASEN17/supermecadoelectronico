@@ -12,7 +12,7 @@ namespace supermecadoelectronico.CLASES
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public decimal Precio { get; set; }
-        public int Catidad { get; set; }
+        public int Cantidad { get; set; }
 
         public Productos() { }
 
@@ -38,7 +38,7 @@ namespace supermecadoelectronico.CLASES
             Marca = marca;
             Modelo = modelo;
             Precio = precio;
-            Catidad = cantidad;
+            Cantidad = cantidad;
         }
 
     }

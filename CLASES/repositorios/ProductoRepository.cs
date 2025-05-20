@@ -21,21 +21,20 @@ namespace supermecadoelectronico.CLASES
 
         public List<Productos> ObtenerTodos()
         {
-            List<Productos> lista = new List<Productos>();
-            SqlCommand cmd = new SqlCommand("sp_ListarProductos", _conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
+            var lista = new List<Productos>();
+            var cmd = new SqlCommand("SELECT * FROM PRODUCTOS", _conexion);
 
             _conexion.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
                 lista.Add(new Productos
                 {
-                    IDProductos = Convert.ToInt32(dr["IDProductos"]),
-                    Marca = dr["Marca"].ToString(),
-                    Modelo = dr["Modelo"].ToString(),
-                    Precio = Convert.ToDecimal(dr["Precio"]),
-                    Catidad = Convert.ToInt32(dr["Catidad"])
+                    IDProductos = Convert.ToInt32(reader["IDPRODUCTO"]),
+                    Marca = reader["MARCA"].ToString(),
+                    Modelo = reader["MODELO"].ToString(),
+                    Precio = Convert.ToDecimal(reader["PRECIO"]),
+                    Cantidad = Convert.ToInt32(reader["CANTIDAD"])
                 });
             }
             _conexion.Close();
@@ -44,17 +43,47 @@ namespace supermecadoelectronico.CLASES
 
         public void Insertar(Productos producto)
         {
-            SqlCommand cmd = new SqlCommand("SP_RegistrarMovimiento", _conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Nombre", producto.Marca);
-            cmd.Parameters.AddWithValue("@Nombre", producto.Modelo);
+            var cmd = new SqlCommand(@"
+            INSERT INTO PRODUCTOS (PRODUCTOID, MARCA, MODELO, PRECIO, CANTIDADINVENTARIO)
+            VALUES (@ID, @Marca, @Modelo, @Precio, @Cantidad)", _conexion);
+
+            cmd.Parameters.AddWithValue("@ID", producto.IDProductos);
+            cmd.Parameters.AddWithValue("@Marca", producto.Marca);
+            cmd.Parameters.AddWithValue("@Modelo", producto.Modelo);
             cmd.Parameters.AddWithValue("@Precio", producto.Precio);
-            cmd.Parameters.AddWithValue("@Stock", producto.Catidad);
+            cmd.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
 
             _conexion.Open();
             cmd.ExecuteNonQuery();
             _conexion.Close();
         }
 
+        public void Actualizar(Productos producto)
+        {
+            var cmd = new SqlCommand(@"
+            UPDATE PRODUCTOS 
+            SET MARCA = @Marca, MODELO = @Modelo, PRECIO = @Precio, CANTIDADINVENTARIO = @Cantidad
+            WHERE PRODUCTOID = @ID", _conexion);
+
+            cmd.Parameters.AddWithValue("@ID", producto.IDProductos);
+            cmd.Parameters.AddWithValue("@Marca", producto.Marca);
+            cmd.Parameters.AddWithValue("@Modelo", producto.Modelo);
+            cmd.Parameters.AddWithValue("@Precio", producto.Precio);
+            cmd.Parameters.AddWithValue("@Cantidad", producto.Cantidad);
+
+            _conexion.Open();
+            cmd.ExecuteNonQuery();
+            _conexion.Close();
+        }
+
+        public void Eliminar(int id)
+        {
+            var cmd = new SqlCommand("DELETE FROM PRODUCTOS WHERE PRODUCTOID = @ID", _conexion);
+            cmd.Parameters.AddWithValue("@ID", id);
+
+            _conexion.Open();
+            cmd.ExecuteNonQuery();
+            _conexion.Close();
+        }
     }
 }
