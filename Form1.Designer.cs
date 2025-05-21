@@ -47,26 +47,27 @@
             this.btnbuscar = new System.Windows.Forms.Button();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnproveedor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtmarca
             // 
-            this.txtmarca.Location = new System.Drawing.Point(320, 119);
+            this.txtmarca.Location = new System.Drawing.Point(45, 135);
             this.txtmarca.Name = "txtmarca";
             this.txtmarca.Size = new System.Drawing.Size(100, 22);
             this.txtmarca.TabIndex = 0;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(320, 172);
+            this.txtModelo.Location = new System.Drawing.Point(45, 188);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(100, 22);
             this.txtModelo.TabIndex = 1;
             // 
             // txtcantidad
             // 
-            this.txtcantidad.Location = new System.Drawing.Point(320, 234);
+            this.txtcantidad.Location = new System.Drawing.Point(45, 250);
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(100, 22);
             this.txtcantidad.TabIndex = 2;
@@ -74,7 +75,7 @@
             // MARCA
             // 
             this.MARCA.AutoSize = true;
-            this.MARCA.Location = new System.Drawing.Point(320, 97);
+            this.MARCA.Location = new System.Drawing.Point(45, 113);
             this.MARCA.Name = "MARCA";
             this.MARCA.Size = new System.Drawing.Size(55, 16);
             this.MARCA.TabIndex = 3;
@@ -83,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(320, 153);
+            this.label2.Location = new System.Drawing.Point(45, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 4;
@@ -92,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(320, 215);
+            this.label3.Location = new System.Drawing.Point(45, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 5;
@@ -101,7 +102,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(320, 284);
+            this.label1.Location = new System.Drawing.Point(45, 300);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 16);
             this.label1.TabIndex = 7;
@@ -109,7 +110,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(320, 303);
+            this.txtPrecio.Location = new System.Drawing.Point(45, 319);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 22);
             this.txtPrecio.TabIndex = 6;
@@ -117,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 45);
+            this.label4.Location = new System.Drawing.Point(141, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 8;
@@ -125,7 +126,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(144, 388);
+            this.btnEliminar.Location = new System.Drawing.Point(73, 371);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(123, 30);
             this.btnEliminar.TabIndex = 10;
@@ -135,7 +136,7 @@
             // 
             // btnVerReportes
             // 
-            this.btnVerReportes.Location = new System.Drawing.Point(573, 388);
+            this.btnVerReportes.Location = new System.Drawing.Point(502, 371);
             this.btnVerReportes.Name = "btnVerReportes";
             this.btnVerReportes.Size = new System.Drawing.Size(123, 30);
             this.btnVerReportes.TabIndex = 11;
@@ -145,7 +146,7 @@
             // 
             // btnAgregarProveedor
             // 
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(426, 388);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(355, 371);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(123, 30);
             this.btnAgregarProveedor.TabIndex = 12;
@@ -155,7 +156,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(288, 388);
+            this.btnActualizar.Location = new System.Drawing.Point(217, 371);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(123, 30);
             this.btnActualizar.TabIndex = 13;
@@ -174,17 +175,17 @@
             // dtgProductos
             // 
             this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProductos.Location = new System.Drawing.Point(494, 66);
+            this.dtgProductos.Location = new System.Drawing.Point(273, 66);
             this.dtgProductos.Name = "dtgProductos";
             this.dtgProductos.RowHeadersWidth = 51;
             this.dtgProductos.RowTemplate.Height = 24;
-            this.dtgProductos.Size = new System.Drawing.Size(457, 259);
+            this.dtgProductos.Size = new System.Drawing.Size(678, 259);
             this.dtgProductos.TabIndex = 15;
             this.dtgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProductos_CellContentClick);
             // 
             // btnlimpiar
             // 
-            this.btnlimpiar.Location = new System.Drawing.Point(722, 388);
+            this.btnlimpiar.Location = new System.Drawing.Point(651, 371);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(123, 30);
             this.btnlimpiar.TabIndex = 16;
@@ -194,7 +195,7 @@
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(877, 388);
+            this.btnbuscar.Location = new System.Drawing.Point(806, 371);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(123, 30);
             this.btnbuscar.TabIndex = 17;
@@ -204,7 +205,7 @@
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(77, 109);
+            this.txtbuscar.Location = new System.Drawing.Point(45, 78);
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(100, 22);
             this.txtbuscar.TabIndex = 18;
@@ -212,17 +213,28 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(74, 90);
+            this.label5.Location = new System.Drawing.Point(42, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 19;
             this.label5.Text = "buscar por id";
+            // 
+            // btnproveedor
+            // 
+            this.btnproveedor.Location = new System.Drawing.Point(737, 443);
+            this.btnproveedor.Name = "btnproveedor";
+            this.btnproveedor.Size = new System.Drawing.Size(123, 30);
+            this.btnproveedor.TabIndex = 20;
+            this.btnproveedor.Text = "PROVEEDOR";
+            this.btnproveedor.UseVisualStyleBackColor = true;
+            this.btnproveedor.Click += new System.EventHandler(this.btnproveedor_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 485);
+            this.Controls.Add(this.btnproveedor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtbuscar);
             this.Controls.Add(this.btnbuscar);
@@ -272,6 +284,7 @@
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.TextBox txtbuscar;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnproveedor;
     }
 }
 

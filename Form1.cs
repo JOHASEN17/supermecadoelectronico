@@ -199,5 +199,10 @@ namespace supermecadoelectronico
 
         }
 
+        private void btnproveedor_Click(object sender, EventArgs e)
+        {
+            Proveedor Form1 = new Proveedor();
+            Form1.Show();
+        }
     }
 }
