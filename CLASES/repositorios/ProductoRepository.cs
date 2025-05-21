@@ -59,6 +59,7 @@ namespace supermecadoelectronico.CLASES.repositorios
 
         public void Actualizar(Productos producto)
         {
+            
             var cmd = new SqlCommand("sp_ActualizarProducto", _conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@PRODUCTOID", producto.IDProductos);

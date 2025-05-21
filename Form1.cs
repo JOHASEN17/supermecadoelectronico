@@ -119,20 +119,26 @@ namespace supermecadoelectronico
                 _uow.ProductoRepository.Actualizar(producto);
                 CargarProductos();
                 LimpiarCampos();
+
+                
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (productoSeleccionadoId.HasValue)
+            if (int.TryParse(txtbuscar.Text, out int productoId))
             {
                 var confirm = MessageBox.Show("¿Estás seguro de eliminar este producto?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
-                    _uow.ProductoRepository.Eliminar(productoSeleccionadoId.Value);
+                    _uow.ProductoRepository.Eliminar(productoId);
                     CargarProductos();
                     LimpiarCampos();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingresa un ID válido en el campo de búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
