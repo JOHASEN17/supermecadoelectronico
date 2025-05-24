@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace supermecadoelectronico.CLASES.repositorios
 {
-    public interface Iproveedorrepository
+    public interface IProveedorrepository
     {
         List<Proveedor> ObtenerTodos();
 

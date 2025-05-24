@@ -49,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLASES\Proveedores.cs" />
-    <Compile Include="CLASES\repositorios\Iproveedorrepository.cs" />
+    <Compile Include="CLASES\repositorios\IProveedorrepository.cs" />
+    <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="CLASES\UnitOfWork\UnitOfWorkproveedor.cs" />
     <Compile Include="CLASES\Usuario.cs" />
     <Compile Include="CLASES\Utils\dbConexionsingleton.cs" />
     <Compile Include="CLASES\repositorios\IProductoRepository.cs" />

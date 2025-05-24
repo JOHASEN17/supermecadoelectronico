@@ -12,5 +12,7 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
     {
         IProductoRepository ProductoRepository { get; }
 
+        IProveedorrepository Proveedorrepository { get; }
+
     }
 }

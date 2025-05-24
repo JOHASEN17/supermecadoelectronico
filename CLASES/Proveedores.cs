@@ -8,10 +8,10 @@ namespace supermecadoelectronico.CLASES
 {
     public class Proveedores
     {
-        public int ProductoID {get; set;}
+        public int IDProductos { get; set;}
         public int ProveedorID { get; set;}
         public string Proveedor { get; set;}
-        public string contacto {  get; set;}
+        public string Contacto {  get; set;}
 
     }
 }
