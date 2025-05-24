@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLASES\proveedores.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="CLASES\Usuario.cs" />
