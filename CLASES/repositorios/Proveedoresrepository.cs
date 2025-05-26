@@ -1,12 +1,12 @@
-﻿using supermecadoelectronico.CLASES.utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
+using System.Configuration;
+using supermecadoelectronico.CLASES.utils;
 
 namespace supermecadoelectronico.CLASES.repositorios
 {
@@ -22,7 +22,7 @@ namespace supermecadoelectronico.CLASES.repositorios
         public List<Proveedores> ObtenerTodos()
         {
             var lista = new List<Proveedores>();
-            var cmd = new SqlCommand("sp", _conexion);
+            var cmd = new SqlCommand("SP_listarprovedores", _conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
             _conexion.Open();
@@ -32,7 +32,7 @@ namespace supermecadoelectronico.CLASES.repositorios
                 lista.Add(new Proveedores
                 {
                     IDProductos = Convert.ToInt32(reader["PRODUCTOID"]),
-                    Proveedor = reader["PROVEEDOR"].ToString(),
+                    Nombre = reader["NOMBRE"].ToString(),
                     Contacto = reader["CONTACTO"].ToString(),
                     ProveedorID = Convert.ToInt32(reader["IDPROVEEDOR"])
                 });
@@ -41,25 +41,25 @@ namespace supermecadoelectronico.CLASES.repositorios
             return lista;
         }
 
-        public void Insertar(Proveedor proveedor)
+        public void Insertar(Proveedores proveedores)
         {
             var cmd = new SqlCommand("sp_InsertarProveedor", _conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PROVEEDOR", proveedor.proveedor);
-            cmd.Parameters.AddWithValue("@CONTACTO", proveedor.Contacto);
+            cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
+            cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
 
             _conexion.Open();
             cmd.ExecuteNonQuery();
             _conexion.Close();
         }
 
-        public void Actualizar(Proveedor proveedor)
+        public void Actualizar(Proveedores proveedores)
         {
 
-            var cmd = new SqlCommand("sp_ActualizarProveedor", _conexion);
+            var cmd = new SqlCommand("SP_ActualizarProveedores", _conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PROVEEDOR", proveedor.proveedor);
-            cmd.Parameters.AddWithValue("@CONTACTO", proveedor.Contacto);
+            cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
+            cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
 
             _conexion.Open();
             cmd.ExecuteNonQuery();
@@ -68,7 +68,7 @@ namespace supermecadoelectronico.CLASES.repositorios
 
         public void Eliminar(int id)
         {
-            var cmd = new SqlCommand("sp_EliminarProveedor", _conexion);
+            var cmd = new SqlCommand("SP_ELIMARPROVEEDOR", _conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@PROVEEDORID", id);
 

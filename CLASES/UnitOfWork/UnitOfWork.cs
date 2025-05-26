@@ -12,11 +12,12 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         public IProductoRepository ProductoRepository { get; }
+        public IProveedorrepository Proveedoresrepository { get; }
 
         public UnitOfWork()
         {
-
             ProductoRepository = new ProductoRepository();
+            Proveedoresrepository = new Proveedoresrepository();
         }
     }
 }

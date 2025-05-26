@@ -39,6 +39,8 @@
             this.btnelimanrp = new System.Windows.Forms.Button();
             this.btnactualizarp = new System.Windows.Forms.Button();
             this.btnform1 = new System.Windows.Forms.Button();
+            this.txtbuscarproveedor = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +103,7 @@
             this.btnguardarp.TabIndex = 6;
             this.btnguardarp.Text = "GUARDAR";
             this.btnguardarp.UseVisualStyleBackColor = true;
+            this.btnguardarp.Click += new System.EventHandler(this.btnguardarp_Click);
             // 
             // btnbuscarp
             // 
@@ -119,6 +122,7 @@
             this.btnelimanrp.TabIndex = 8;
             this.btnelimanrp.Text = "ELIMINAR";
             this.btnelimanrp.UseVisualStyleBackColor = true;
+            this.btnelimanrp.Click += new System.EventHandler(this.btnelimanrp_Click);
             // 
             // btnactualizarp
             // 
@@ -128,6 +132,7 @@
             this.btnactualizarp.TabIndex = 9;
             this.btnactualizarp.Text = "ACTUALIZAR";
             this.btnactualizarp.UseVisualStyleBackColor = true;
+            this.btnactualizarp.Click += new System.EventHandler(this.btnactualizarp_Click);
             // 
             // btnform1
             // 
@@ -138,11 +143,29 @@
             this.btnform1.Text = "PEDIDOS";
             this.btnform1.UseVisualStyleBackColor = true;
             // 
+            // txtbuscarproveedor
+            // 
+            this.txtbuscarproveedor.Location = new System.Drawing.Point(42, 55);
+            this.txtbuscarproveedor.Name = "txtbuscarproveedor";
+            this.txtbuscarproveedor.Size = new System.Drawing.Size(214, 22);
+            this.txtbuscarproveedor.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "BUSCAR";
+            // 
             // Proveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtbuscarproveedor);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnform1);
             this.Controls.Add(this.btnactualizarp);
             this.Controls.Add(this.btnelimanrp);
@@ -176,5 +199,7 @@
         private System.Windows.Forms.Button btnelimanrp;
         private System.Windows.Forms.Button btnactualizarp;
         private System.Windows.Forms.Button btnform1;
+        private System.Windows.Forms.TextBox txtbuscarproveedor;
+        private System.Windows.Forms.Label label4;
     }
 }

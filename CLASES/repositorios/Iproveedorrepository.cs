@@ -8,10 +8,10 @@ namespace supermecadoelectronico.CLASES.repositorios
 {
     public interface IProveedorrepository
     {
-        List<Proveedor> ObtenerTodos();
+        List<Proveedores> ObtenerTodos();
 
-        void Insertar(Proveedor proveedor);
-        void Actualizar(Proveedor proveedor);
+        void Insertar(Proveedores proveedores);
+        void Actualizar(Proveedores proveedores);
         void Eliminar(int ProveedorID);
     }
 }

@@ -9,7 +9,7 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
 {
     public class UnitOfWorkproveedor : UnitOfWork
     {
-        public IProveedoresrepository proveedoresrepository { get; }
+        public IProveedorrepository proveedoresrepository { get; }
 
         public UnitOfWorkproveedor()
         {
