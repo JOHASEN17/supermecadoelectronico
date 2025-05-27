@@ -38,7 +38,6 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnVerReportes = new System.Windows.Forms.Button();
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblModo = new System.Windows.Forms.Label();
@@ -48,7 +47,12 @@
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnproveedor = new System.Windows.Forms.Button();
+            this.btnventas = new System.Windows.Forms.Button();
+            this.dgvcarrito = new System.Windows.Forms.DataGridView();
+            this.btnagrrgaralcarrito = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcarrito)).BeginInit();
             this.SuspendLayout();
             // 
             // txtmarca
@@ -118,7 +122,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(141, 27);
+            this.label4.Location = new System.Drawing.Point(394, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 8;
@@ -126,7 +130,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(73, 371);
+            this.btnEliminar.Location = new System.Drawing.Point(693, 250);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(123, 30);
             this.btnEliminar.TabIndex = 10;
@@ -134,19 +138,9 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnVerReportes
-            // 
-            this.btnVerReportes.Location = new System.Drawing.Point(502, 371);
-            this.btnVerReportes.Name = "btnVerReportes";
-            this.btnVerReportes.Size = new System.Drawing.Size(123, 30);
-            this.btnVerReportes.TabIndex = 11;
-            this.btnVerReportes.Text = "REPORTES";
-            this.btnVerReportes.UseVisualStyleBackColor = true;
-            this.btnVerReportes.Click += new System.EventHandler(this.btnVerReportes_Click);
-            // 
             // btnAgregarProveedor
             // 
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(355, 371);
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(693, 107);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(123, 30);
             this.btnAgregarProveedor.TabIndex = 12;
@@ -156,7 +150,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(217, 371);
+            this.btnActualizar.Location = new System.Drawing.Point(693, 154);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(123, 30);
             this.btnActualizar.TabIndex = 13;
@@ -175,17 +169,17 @@
             // dtgProductos
             // 
             this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProductos.Location = new System.Drawing.Point(273, 66);
+            this.dtgProductos.Location = new System.Drawing.Point(170, 59);
             this.dtgProductos.Name = "dtgProductos";
             this.dtgProductos.RowHeadersWidth = 51;
             this.dtgProductos.RowTemplate.Height = 24;
-            this.dtgProductos.Size = new System.Drawing.Size(678, 259);
+            this.dtgProductos.Size = new System.Drawing.Size(499, 282);
             this.dtgProductos.TabIndex = 15;
             this.dtgProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProductos_CellContentClick);
             // 
             // btnlimpiar
             // 
-            this.btnlimpiar.Location = new System.Drawing.Point(651, 371);
+            this.btnlimpiar.Location = new System.Drawing.Point(693, 203);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(123, 30);
             this.btnlimpiar.TabIndex = 16;
@@ -195,7 +189,7 @@
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(806, 371);
+            this.btnbuscar.Location = new System.Drawing.Point(693, 59);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(123, 30);
             this.btnbuscar.TabIndex = 17;
@@ -221,7 +215,7 @@
             // 
             // btnproveedor
             // 
-            this.btnproveedor.Location = new System.Drawing.Point(737, 443);
+            this.btnproveedor.Location = new System.Drawing.Point(693, 300);
             this.btnproveedor.Name = "btnproveedor";
             this.btnproveedor.Size = new System.Drawing.Size(123, 30);
             this.btnproveedor.TabIndex = 20;
@@ -229,11 +223,53 @@
             this.btnproveedor.UseVisualStyleBackColor = true;
             this.btnproveedor.Click += new System.EventHandler(this.btnproveedor_Click);
             // 
+            // btnventas
+            // 
+            this.btnventas.Location = new System.Drawing.Point(693, 349);
+            this.btnventas.Name = "btnventas";
+            this.btnventas.Size = new System.Drawing.Size(123, 30);
+            this.btnventas.TabIndex = 21;
+            this.btnventas.Text = "VENDER";
+            this.btnventas.UseVisualStyleBackColor = true;
+            this.btnventas.Click += new System.EventHandler(this.btnventas_Click);
+            // 
+            // dgvcarrito
+            // 
+            this.dgvcarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvcarrito.Location = new System.Drawing.Point(822, 59);
+            this.dgvcarrito.Name = "dgvcarrito";
+            this.dgvcarrito.RowHeadersWidth = 51;
+            this.dgvcarrito.RowTemplate.Height = 24;
+            this.dgvcarrito.Size = new System.Drawing.Size(438, 188);
+            this.dgvcarrito.TabIndex = 22;
+            // 
+            // btnagrrgaralcarrito
+            // 
+            this.btnagrrgaralcarrito.Location = new System.Drawing.Point(693, 402);
+            this.btnagrrgaralcarrito.Name = "btnagrrgaralcarrito";
+            this.btnagrrgaralcarrito.Size = new System.Drawing.Size(123, 63);
+            this.btnagrrgaralcarrito.TabIndex = 23;
+            this.btnagrrgaralcarrito.Text = "AGREGAR AL CARRITO ";
+            this.btnagrrgaralcarrito.UseVisualStyleBackColor = true;
+            this.btnagrrgaralcarrito.Click += new System.EventHandler(this.btnagrrgaralcarrito_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(832, 264);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 16);
+            this.lblTotal.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 485);
+            this.ClientSize = new System.Drawing.Size(1330, 505);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.btnagrrgaralcarrito);
+            this.Controls.Add(this.dgvcarrito);
+            this.Controls.Add(this.btnventas);
             this.Controls.Add(this.btnproveedor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtbuscar);
@@ -243,7 +279,6 @@
             this.Controls.Add(this.lblModo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregarProveedor);
-            this.Controls.Add(this.btnVerReportes);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -258,6 +293,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcarrito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +311,6 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnVerReportes;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblModo;
@@ -285,6 +320,10 @@
         private System.Windows.Forms.TextBox txtbuscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnproveedor;
+        private System.Windows.Forms.Button btnventas;
+        private System.Windows.Forms.DataGridView dgvcarrito;
+        private System.Windows.Forms.Button btnagrrgaralcarrito;
+        private System.Windows.Forms.Label lblTotal;
     }
 }
 

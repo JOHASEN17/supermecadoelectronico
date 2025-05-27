@@ -1,5 +1,7 @@
 ﻿using supermecadoelectronico.CLASES;
+using supermecadoelectronico.CLASES.Carrito_de_compras;
 using supermecadoelectronico.CLASES.UnitOfWork;
+using supermecadoelectronico.CLASES.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using supermecadoelectronico.CLASES.utils;
 
 namespace supermecadoelectronico
 {
@@ -18,6 +19,7 @@ namespace supermecadoelectronico
     {
         private readonly IUnitOfWork _uow = new UnitOfWork(); // Aquí usamos Unit of Work
         private int? productoSeleccionadoId = null;
+        private Carrito carrito = new Carrito();
 
         private bool esAdmin;
 
@@ -48,7 +50,6 @@ namespace supermecadoelectronico
                 btnEliminar.Visible = false;
                 btnActualizar.Visible = false;
                 btnAgregarProveedor.Visible = false;
-                btnVerReportes.Visible = true;
 
                 // O deshabilitarlos si prefieres:
                 // btnEliminar.Enabled = false;
@@ -120,7 +121,7 @@ namespace supermecadoelectronico
                 CargarProductos();
                 LimpiarCampos();
 
-                
+
             }
         }
 
@@ -203,6 +204,43 @@ namespace supermecadoelectronico
         {
             Proveedor Form1 = new Proveedor();
             Form1.Show();
+        }
+
+        private void btnventas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnagrrgaralcarrito_Click(object sender, EventArgs e)
+        {
+            decimal precio = decimal.Parse(txtPrecio.Text);
+
+            if (dtgProductos.CurrentRow == null)
+            {
+                MessageBox.Show("Selecciona un producto.");
+                return;
+            }
+
+            string modelo = dtgProductos.CurrentRow.Cells["Modelo"].Value?.ToString().Trim();
+            string marca = dtgProductos.CurrentRow.Cells["Marca"].Value?.ToString().Trim();
+            string nombre = $"{marca} {modelo}";
+
+            if (!int.TryParse(txtcantidad.Text, out int cantidad))
+            {
+                MessageBox.Show("Cantidad inválida.");
+                return;
+            }
+
+
+            carrito.AgregarItem(nombre, cantidad, precio);
+            ActualizarVistaCarrito();
+        }
+
+        private void ActualizarVistaCarrito()
+        {
+            dgvcarrito.DataSource = null;
+            dgvcarrito.DataSource = carrito.Items;
+            lblTotal.Text = $"Total: {carrito.CalcularTotal():C}";
         }
     }
 }

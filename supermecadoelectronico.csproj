@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLASES\Carrito de compras\Carrito.cs" />
+    <Compile Include="CLASES\Carrito de compras\ItemCarrito.cs" />
     <Compile Include="CLASES\Proveedores.cs" />
     <Compile Include="CLASES\repositorios\IProveedorrepository.cs" />
     <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />
