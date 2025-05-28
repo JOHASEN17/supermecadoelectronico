@@ -52,7 +52,9 @@
     <Compile Include="CLASES\Carrito de compras\ItemCarrito.cs" />
     <Compile Include="CLASES\Proveedores.cs" />
     <Compile Include="CLASES\repositorios\IProveedorrepository.cs" />
+    <Compile Include="CLASES\repositorios\IVentasService.cs" />
     <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />
+    <Compile Include="CLASES\repositorios\VentaService.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWorkproveedor.cs" />
@@ -64,6 +66,12 @@
     <Compile Include="CLASES\RegistroProductos.cs" />
     <Compile Include="CLASES\services\AuthService.cs" />
     <Compile Include="CLASES\Utils\sesionUsuario.cs" />
+    <Compile Include="CLASES\Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CLASES\Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +89,9 @@
     <Compile Include="Proveedor.Designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CLASES\Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
