@@ -11,9 +11,9 @@ namespace supermecadoelectronico.CLASES.Carrito_de_compras
     {
         public List<ItemCarrito> Items { get; } = new List<ItemCarrito>();
 
-        public void AgregarItem(string nombre, int cantidad, decimal precio)
+        public void AgregarItem(string modelo, string marca, int cantidad, decimal precio, int productoid)
         {
-            var existente = Items.FirstOrDefault(i => i.NombreProducto == nombre);
+            var existente = Items.FirstOrDefault(i => i.ProductoID == productoid);
             if (existente != null)
             {
                 existente.Cantidad += cantidad;
@@ -22,16 +22,19 @@ namespace supermecadoelectronico.CLASES.Carrito_de_compras
             {
                 Items.Add(new ItemCarrito
                 {
-                    NombreProducto = nombre,
+                    
+                    ProductoID = productoid,
+                    Modelo = modelo,
+                    Marca = marca,
                     Cantidad = cantidad,
                     PrecioUnitario = precio
                 });
             }
         }
 
-        public void EliminarItem(string nombre)
+        public void EliminarItem(int productoid)
         {
-            Items.RemoveAll(i => i.NombreProducto == nombre);
+            Items.RemoveAll(i => i.ProductoID == productoid);
         }
 
         public decimal CalcularTotal()

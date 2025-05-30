@@ -223,7 +223,7 @@ namespace supermecadoelectronico
 
             string modelo = dtgProductos.CurrentRow.Cells["Modelo"].Value?.ToString().Trim();
             string marca = dtgProductos.CurrentRow.Cells["Marca"].Value?.ToString().Trim();
-            string nombre = $"{marca} {modelo}";
+
 
             if (!int.TryParse(txtcantidad.Text, out int cantidad))
             {
@@ -231,8 +231,14 @@ namespace supermecadoelectronico
                 return;
             }
 
+            if (!int.TryParse(txtbuscar.Text, out int productoid))
+            {
+                MessageBox.Show("Cantidad inválida.");
+                return;
+            }
 
-            carrito.AgregarItem(nombre, cantidad, precio);
+
+            carrito.AgregarItem( modelo, marca, cantidad, precio, productoid);
             ActualizarVistaCarrito();
         }
 

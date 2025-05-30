@@ -8,10 +8,13 @@ namespace supermecadoelectronico.CLASES.Carrito_de_compras
 {
     public class ItemCarrito
     {
-        public string NombreProducto { get; set; }
+        public string Modelo { get; set; }
+
+        public string Marca { get; set; }
+        public int ProductoID { get; set; } 
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
 
-        public decimal Total => Cantidad * PrecioUnitario;
+        public decimal Total => Cantidad * (PrecioUnitario);
     }
 }
