@@ -55,6 +55,8 @@
     <Compile Include="CLASES\repositorios\IVentasService.cs" />
     <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />
     <Compile Include="CLASES\repositorios\VentaService.cs" />
+    <Compile Include="CLASES\services\ProductoServicio.cs" />
+    <Compile Include="CLASES\services\VentaServicio.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWorkproveedor.cs" />
@@ -83,6 +85,11 @@
     <Compile Include="Proveedor.Designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="SUPERMERCADODataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SUPERMERCADODataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +114,9 @@
     <EmbeddedResource Include="Proveedor.resx">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,6 +126,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SUPERMERCADODataSet1.xsc">
+      <DependentUpon>SUPERMERCADODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SUPERMERCADODataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SUPERMERCADODataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SUPERMERCADODataSet1.xss">
+      <DependentUpon>SUPERMERCADODataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

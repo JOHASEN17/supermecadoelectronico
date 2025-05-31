@@ -209,6 +209,8 @@ namespace supermecadoelectronico
         private void btnventas_Click(object sender, EventArgs e)
         {
 
+            Form ventasForm = new Ventas();
+            ventasForm.ShowDialog();
         }
 
         private void btnagrrgaralcarrito_Click(object sender, EventArgs e)
