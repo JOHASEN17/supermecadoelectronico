@@ -52,10 +52,13 @@
     <Compile Include="CLASES\Carrito de compras\Carrito.cs" />
     <Compile Include="CLASES\Carrito de compras\ItemCarrito.cs" />
     <Compile Include="CLASES\Proveedores.cs" />
+    <Compile Include="CLASES\repositorios\AlertaRepository.cs" />
+    <Compile Include="CLASES\repositorios\IAlertaRepository.cs" />
     <Compile Include="CLASES\repositorios\IProveedorrepository.cs" />
     <Compile Include="CLASES\repositorios\IVentasService.cs" />
     <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />
     <Compile Include="CLASES\repositorios\VentaService.cs" />
+    <Compile Include="CLASES\services\AlertaService.cs" />
     <Compile Include="CLASES\services\ProductoServicio.cs" />
     <Compile Include="CLASES\services\VentaServicio.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />

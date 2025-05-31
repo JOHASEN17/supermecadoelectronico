@@ -210,6 +210,7 @@
             this.Controls.Add(this.txtmarca);
             this.Name = "Ventas";
             this.Text = "ventas";
+            this.Load += new System.EventHandler(this.Ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcarrito)).EndInit();
             this.ResumeLayout(false);

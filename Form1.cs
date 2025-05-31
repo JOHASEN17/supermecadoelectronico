@@ -1,5 +1,7 @@
 ﻿using supermecadoelectronico.CLASES;
 using supermecadoelectronico.CLASES.Carrito_de_compras;
+using supermecadoelectronico.CLASES.repositorios;
+using supermecadoelectronico.CLASES.services;
 using supermecadoelectronico.CLASES.UnitOfWork;
 using supermecadoelectronico.CLASES.utils;
 using System;
@@ -249,6 +251,18 @@ namespace supermecadoelectronico
             dgvcarrito.DataSource = null;
             dgvcarrito.DataSource = carrito.Items;
             lblTotal.Text = $"Total: {carrito.CalcularTotal():C}";
+        }
+
+        private void btnalertas_Click(object sender, EventArgs e)
+        {
+            string cs = "Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True";
+            IAlertaRepository alertaRepo = new AlertaRepository(cs);
+            AlertaService servicio = new AlertaService(alertaRepo);
+
+            servicio.EjecutarVerificacion();
+
+            var alertas = servicio.ConsultarAlertas();
+            dgvalertas.DataSource = alertas;
         }
     }
 }

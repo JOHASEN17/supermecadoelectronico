@@ -10,11 +10,17 @@ using System.Threading.Tasks;
 
 namespace supermecadoelectronico.CLASES.repositorios
 {
-    public class VentaService
+    public class VentaService : IVentasService
     {
+        private readonly string _connectionString;
+
+        public VentaService(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
         public void RegistrarVenta(ItemCarrito item)
         {
-            using (var conn = dbConexionsingleton.Instancia)
+            using (var conn = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand("SP_RegistrarVenta", conn))
                 {
@@ -33,7 +39,6 @@ namespace supermecadoelectronico.CLASES.repositorios
 
         }
     
-
         public void RegistrarVentas(List<ItemCarrito> items)
         {
             foreach (var item in items)

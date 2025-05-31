@@ -19,7 +19,7 @@ namespace supermecadoelectronico
     {
         private readonly ProductoServicio productoService = new ProductoServicio();
         private Carrito carrito = new Carrito();
-        private readonly VentaService ventaService = new VentaService();
+        
         public Ventas()
         {
             InitializeComponent();
@@ -38,18 +38,13 @@ namespace supermecadoelectronico
             }
         }
 
-        private void cmbProductos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           /* if (cmbProductos.SelectedItem is Productos producto)
-            {
-                txtPrecio.Text = producto.Precio.ToString("C");
-                txtcantidad.Text = producto.Cantidad.ToString();
-            }
-           */
-        }
+       
 
         private void btnvender_Click(object sender, EventArgs e)
         {
+            string cs = "Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True";
+            IVentasService ventaService = new VentaService(cs);
+
             try
             {
                 if (carrito.Items.Count == 0)
@@ -65,7 +60,7 @@ namespace supermecadoelectronico
                 carrito.Limpiar();
                 dgvcarrito.DataSource = null;
 
-                // Opcional: recargar productos actualizados
+                
                 CargarProductosGrid();
             }
             catch (Exception ex)
@@ -112,15 +107,7 @@ namespace supermecadoelectronico
             ActualizarVistaCarrito();
         }
 
-        private void btnFinalizarVenta_Click(object sender, EventArgs e)
-        {/*
-            VentaServicio.RegistrarVenta(carrito.Items.ToList());
-            MessageBox.Show("Venta registrada con éxito");
-            carrito.Limpiar();
-            dgvcarrito.DataSource = null;
-            lblTotal.Text = "Total: $0.00";
-            */
-        }
+       
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
@@ -154,6 +141,11 @@ namespace supermecadoelectronico
             {
                 MessageBox.Show("Ingrese un ID válido.");
             }
+        }
+
+        private void Ventas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
