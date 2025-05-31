@@ -19,6 +19,7 @@ namespace supermecadoelectronico
     {
         private readonly ProductoServicio productoService = new ProductoServicio();
         private Carrito carrito = new Carrito();
+        private readonly VentaService ventaService = new VentaService();
         public Ventas()
         {
             InitializeComponent();
@@ -48,28 +49,29 @@ namespace supermecadoelectronico
         }
 
         private void btnvender_Click(object sender, EventArgs e)
-        {/*
+        {
             try
             {
-                foreach (var item in carrito.Items)
+                if (carrito.Items.Count == 0)
                 {
-                    VentaServicio.RegistrarVenta(
-                        item.ProductoID,
-                        item.Cantidad,
-                        item.PrecioUnitario
-                    );
+                    MessageBox.Show("El carrito está vacío.");
+                    return;
                 }
 
-                MessageBox.Show("Venta registrada con éxito.");
+                ventaService.RegistrarVentas(carrito.Items);
+
+                MessageBox.Show("Venta registrada correctamente.");
+
                 carrito.Limpiar();
                 dgvcarrito.DataSource = null;
+
+                // Opcional: recargar productos actualizados
                 CargarProductosGrid();
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar la venta: " + ex.Message);
+                MessageBox.Show("Error al registrar venta: " + ex.Message);
             }
-            */
         }
 
         private void ActualizarVistaCarrito()

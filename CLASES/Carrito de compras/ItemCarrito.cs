@@ -18,3 +18,4 @@ namespace supermecadoelectronico.CLASES.Carrito_de_compras
         public decimal Total => Cantidad * (PrecioUnitario);
     }
 }
+    
