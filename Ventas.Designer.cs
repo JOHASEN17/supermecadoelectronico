@@ -176,6 +176,7 @@
             this.btnbuscar.TabIndex = 31;
             this.btnbuscar.Text = "BUSCAR";
             this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // lblTotal
             // 
