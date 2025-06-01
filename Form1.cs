@@ -33,10 +33,7 @@ namespace supermecadoelectronico
             AplicarPermisos();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            CargarProductos();
-        }
+      
 
         private void CargarProductos()
         {
@@ -52,6 +49,7 @@ namespace supermecadoelectronico
                 btnEliminar.Visible = false;
                 btnActualizar.Visible = false;
                 btnAgregarProveedor.Visible = false;
+                btnproveedor.Visible = false;
 
                 // O deshabilitarlos si prefieres:
                 // btnEliminar.Enabled = false;
@@ -212,46 +210,12 @@ namespace supermecadoelectronico
         {
 
             Form ventasForm = new Ventas();
-            ventasForm.ShowDialog();
+           ventasForm.ShowDialog();
         }
 
-        private void btnagrrgaralcarrito_Click(object sender, EventArgs e)
-        {
-            decimal precio = decimal.Parse(txtPrecio.Text);
+        
 
-            if (dtgProductos.CurrentRow == null)
-            {
-                MessageBox.Show("Selecciona un producto.");
-                return;
-            }
-
-            string modelo = dtgProductos.CurrentRow.Cells["Modelo"].Value?.ToString().Trim();
-            string marca = dtgProductos.CurrentRow.Cells["Marca"].Value?.ToString().Trim();
-
-
-            if (!int.TryParse(txtcantidad.Text, out int cantidad))
-            {
-                MessageBox.Show("Cantidad inválida.");
-                return;
-            }
-
-            if (!int.TryParse(txtbuscar.Text, out int productoid))
-            {
-                MessageBox.Show("Cantidad inválida.");
-                return;
-            }
-
-
-            carrito.AgregarItem( modelo, marca, cantidad, precio, productoid);
-            ActualizarVistaCarrito();
-        }
-
-        private void ActualizarVistaCarrito()
-        {
-            dgvcarrito.DataSource = null;
-            dgvcarrito.DataSource = carrito.Items;
-            lblTotal.Text = $"Total: {carrito.CalcularTotal():C}";
-        }
+       
 
         private void btnalertas_Click(object sender, EventArgs e)
         {
@@ -263,6 +227,11 @@ namespace supermecadoelectronico
 
             var alertas = servicio.ConsultarAlertas();
             dgvalertas.DataSource = alertas;
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            CargarProductos();
         }
     }
 }

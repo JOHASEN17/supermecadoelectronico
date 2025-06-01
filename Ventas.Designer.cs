@@ -44,6 +44,9 @@ namespace supermecadoelectronico
             this.btnvender = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.lblmodo = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcarrito)).BeginInit();
             this.SuspendLayout();
@@ -51,111 +54,106 @@ namespace supermecadoelectronico
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 80);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(20, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 13);
+            this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 30;
             this.label5.Text = "buscar por id";
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(17, 96);
-            this.txtbuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbuscar.Location = new System.Drawing.Point(23, 118);
+            this.txtbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(76, 20);
+            this.txtbuscar.Size = new System.Drawing.Size(100, 22);
             this.txtbuscar.TabIndex = 29;
             // 
             // dtgProductos
             // 
             this.dtgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProductos.Location = new System.Drawing.Point(111, 80);
-            this.dtgProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgProductos.Location = new System.Drawing.Point(148, 98);
+            this.dtgProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgProductos.Name = "dtgProductos";
             this.dtgProductos.RowHeadersWidth = 51;
             this.dtgProductos.RowTemplate.Height = 24;
-            this.dtgProductos.Size = new System.Drawing.Size(374, 100);
+            this.dtgProductos.Size = new System.Drawing.Size(499, 123);
             this.dtgProductos.TabIndex = 28;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 276);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(23, 340);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(57, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "PRECIO";
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(17, 292);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecio.Location = new System.Drawing.Point(23, 359);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(76, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(100, 22);
             this.txtPrecio.TabIndex = 26;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 220);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(23, 271);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 25;
             this.label3.Text = "CANTIDAD";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 170);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(23, 209);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 24;
             this.label2.Text = "MODELO";
             // 
             // MARCA
             // 
             this.MARCA.AutoSize = true;
-            this.MARCA.Location = new System.Drawing.Point(17, 124);
-            this.MARCA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MARCA.Location = new System.Drawing.Point(23, 153);
             this.MARCA.Name = "MARCA";
-            this.MARCA.Size = new System.Drawing.Size(45, 13);
+            this.MARCA.Size = new System.Drawing.Size(55, 16);
             this.MARCA.TabIndex = 23;
             this.MARCA.Text = "MARCA";
             // 
             // txtcantidad
             // 
-            this.txtcantidad.Location = new System.Drawing.Point(17, 236);
-            this.txtcantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtcantidad.Location = new System.Drawing.Point(23, 290);
+            this.txtcantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtcantidad.Name = "txtcantidad";
-            this.txtcantidad.Size = new System.Drawing.Size(76, 20);
+            this.txtcantidad.Size = new System.Drawing.Size(100, 22);
             this.txtcantidad.TabIndex = 22;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(17, 185);
-            this.txtModelo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtModelo.Location = new System.Drawing.Point(23, 228);
+            this.txtModelo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(76, 20);
+            this.txtModelo.Size = new System.Drawing.Size(100, 22);
             this.txtModelo.TabIndex = 21;
             // 
             // txtmarca
             // 
-            this.txtmarca.Location = new System.Drawing.Point(17, 142);
-            this.txtmarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtmarca.Location = new System.Drawing.Point(23, 175);
+            this.txtmarca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(76, 20);
+            this.txtmarca.Size = new System.Drawing.Size(100, 22);
             this.txtmarca.TabIndex = 20;
             // 
             // btnagrrgaralcarrito
             // 
             this.btnagrrgaralcarrito.BackColor = System.Drawing.Color.Green;
-            this.btnagrrgaralcarrito.Location = new System.Drawing.Point(503, 162);
-            this.btnagrrgaralcarrito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnagrrgaralcarrito.Location = new System.Drawing.Point(671, 199);
+            this.btnagrrgaralcarrito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnagrrgaralcarrito.Name = "btnagrrgaralcarrito";
-            this.btnagrrgaralcarrito.Size = new System.Drawing.Size(92, 51);
+            this.btnagrrgaralcarrito.Size = new System.Drawing.Size(123, 63);
             this.btnagrrgaralcarrito.TabIndex = 34;
             this.btnagrrgaralcarrito.Text = "AGREGAR AL CARRITO ";
             this.btnagrrgaralcarrito.UseVisualStyleBackColor = false;
@@ -164,21 +162,21 @@ namespace supermecadoelectronico
             // dgvcarrito
             // 
             this.dgvcarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvcarrito.Location = new System.Drawing.Point(111, 185);
-            this.dgvcarrito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvcarrito.Location = new System.Drawing.Point(148, 228);
+            this.dgvcarrito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvcarrito.Name = "dgvcarrito";
             this.dgvcarrito.RowHeadersWidth = 51;
             this.dgvcarrito.RowTemplate.Height = 24;
-            this.dgvcarrito.Size = new System.Drawing.Size(374, 136);
+            this.dgvcarrito.Size = new System.Drawing.Size(499, 167);
             this.dgvcarrito.TabIndex = 33;
             // 
             // btnvender
             // 
             this.btnvender.BackColor = System.Drawing.Color.Green;
-            this.btnvender.Location = new System.Drawing.Point(503, 124);
-            this.btnvender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnvender.Location = new System.Drawing.Point(671, 153);
+            this.btnvender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnvender.Name = "btnvender";
-            this.btnvender.Size = new System.Drawing.Size(92, 24);
+            this.btnvender.Size = new System.Drawing.Size(123, 30);
             this.btnvender.TabIndex = 32;
             this.btnvender.Text = "VENDER";
             this.btnvender.UseVisualStyleBackColor = false;
@@ -187,10 +185,10 @@ namespace supermecadoelectronico
             // btnbuscar
             // 
             this.btnbuscar.BackColor = System.Drawing.Color.Yellow;
-            this.btnbuscar.Location = new System.Drawing.Point(503, 89);
-            this.btnbuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnbuscar.Location = new System.Drawing.Point(671, 110);
+            this.btnbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(92, 24);
+            this.btnbuscar.Size = new System.Drawing.Size(123, 30);
             this.btnbuscar.TabIndex = 31;
             this.btnbuscar.Text = "BUSCAR";
             this.btnbuscar.UseVisualStyleBackColor = false;
@@ -199,19 +197,54 @@ namespace supermecadoelectronico
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(109, 334);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Location = new System.Drawing.Point(145, 411);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(27, 13);
+            this.lblTotal.Size = new System.Drawing.Size(32, 16);
             this.lblTotal.TabIndex = 35;
             this.lblTotal.Text = "total";
             // 
+            // btneliminar
+            // 
+            this.btneliminar.BackColor = System.Drawing.Color.Red;
+            this.btneliminar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btneliminar.Location = new System.Drawing.Point(671, 282);
+            this.btneliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(123, 30);
+            this.btneliminar.TabIndex = 36;
+            this.btneliminar.Text = "ELIMINAR";
+            this.btneliminar.UseVisualStyleBackColor = false;
+            // 
+            // lblmodo
+            // 
+            this.lblmodo.AutoSize = true;
+            this.lblmodo.Location = new System.Drawing.Point(603, 25);
+            this.lblmodo.Name = "lblmodo";
+            this.lblmodo.Size = new System.Drawing.Size(0, 16);
+            this.lblmodo.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(671, 442);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 23);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "SALIR A PRODUCTOS";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Ventas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(898, 510);
+            this.ClientSize = new System.Drawing.Size(850, 476);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblmodo);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnagrrgaralcarrito);
             this.Controls.Add(this.dgvcarrito);
@@ -228,7 +261,7 @@ namespace supermecadoelectronico
             this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.txtmarca);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Ventas";
             this.Text = "ventas";
             this.Load += new System.EventHandler(this.Ventas_Load);
@@ -257,5 +290,8 @@ namespace supermecadoelectronico
         private System.Windows.Forms.Button btnvender;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Label lblmodo;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -111,7 +111,9 @@ namespace supermecadoelectronico
             }
         }
 
-        private void btnbuscarp_Click(object sender, EventArgs e)
+       
+
+        private void btnbuscarp_Click_1(object sender, EventArgs e)
         {
             int id;
             if (int.TryParse(txtbuscarproveedor.Text, out id))
