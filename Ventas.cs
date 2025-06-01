@@ -175,5 +175,26 @@ namespace supermecadoelectronico
         {
             this.Close();
         }
+
+        private void RefrescarCarrito()
+        {
+            dgvcarrito.DataSource = null;
+            dgvcarrito.DataSource = carrito.Items;
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvcarrito.CurrentRow != null)
+            {
+                int idProducto = (int)dgvcarrito.CurrentRow.Cells["Productoid"].Value;
+
+                carrito.EliminarItem(idProducto);
+                RefrescarCarrito();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un producto del carrito para eliminar.");
+            }
+        }
     }
 }

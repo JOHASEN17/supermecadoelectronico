@@ -214,6 +214,7 @@ namespace supermecadoelectronico
             this.btneliminar.TabIndex = 36;
             this.btneliminar.Text = "ELIMINAR";
             this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // lblmodo
             // 
