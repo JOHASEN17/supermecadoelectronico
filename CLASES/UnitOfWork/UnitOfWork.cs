@@ -17,7 +17,7 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
         public UnitOfWork()
         {
             ProductoRepository = new ProductoRepository();
-            Proveedoresrepository = new Proveedoresrepository();
+
         }
     }
 }

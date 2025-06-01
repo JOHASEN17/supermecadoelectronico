@@ -63,7 +63,6 @@
     <Compile Include="CLASES\services\VentaServicio.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="CLASES\UnitOfWork\UnitOfWork.cs" />
-    <Compile Include="CLASES\UnitOfWork\UnitOfWorkproveedor.cs" />
     <Compile Include="CLASES\Usuario.cs" />
     <Compile Include="CLASES\Utils\dbConexionsingleton.cs" />
     <Compile Include="CLASES\repositorios\IProductoRepository.cs" />

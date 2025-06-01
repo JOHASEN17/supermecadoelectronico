@@ -41,6 +41,8 @@
             this.btnform1 = new System.Windows.Forms.Button();
             this.txtbuscarproveedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtidproducto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 90);
+            this.label2.Location = new System.Drawing.Point(39, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 16);
             this.label2.TabIndex = 2;
@@ -74,14 +76,14 @@
             // 
             // txtproveedor
             // 
-            this.txtproveedor.Location = new System.Drawing.Point(42, 122);
+            this.txtproveedor.Location = new System.Drawing.Point(42, 184);
             this.txtproveedor.Name = "txtproveedor";
             this.txtproveedor.Size = new System.Drawing.Size(214, 22);
             this.txtproveedor.TabIndex = 3;
             // 
             // txtcontacto
             // 
-            this.txtcontacto.Location = new System.Drawing.Point(42, 193);
+            this.txtcontacto.Location = new System.Drawing.Point(42, 255);
             this.txtcontacto.Name = "txtcontacto";
             this.txtcontacto.Size = new System.Drawing.Size(214, 22);
             this.txtcontacto.TabIndex = 5;
@@ -89,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 161);
+            this.label3.Location = new System.Drawing.Point(39, 223);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 16);
             this.label3.TabIndex = 4;
@@ -113,6 +115,7 @@
             this.btnbuscarp.TabIndex = 7;
             this.btnbuscarp.Text = "BUSCAR";
             this.btnbuscarp.UseVisualStyleBackColor = true;
+            this.btnbuscarp.Click += new System.EventHandler(this.btnbuscarp_Click);
             // 
             // btnelimanrp
             // 
@@ -155,15 +158,33 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(39, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 16);
+            this.label4.Size = new System.Drawing.Size(106, 16);
             this.label4.TabIndex = 11;
-            this.label4.Text = "BUSCAR";
+            this.label4.Text = "IDPROVEEDOR\r\n";
+            // 
+            // txtidproducto
+            // 
+            this.txtidproducto.Location = new System.Drawing.Point(42, 118);
+            this.txtidproducto.Name = "txtidproducto";
+            this.txtidproducto.Size = new System.Drawing.Size(214, 22);
+            this.txtidproducto.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(39, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "IDPRODUCTO";
             // 
             // Proveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtidproducto);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtbuscarproveedor);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnform1);
@@ -201,5 +222,7 @@
         private System.Windows.Forms.Button btnform1;
         private System.Windows.Forms.TextBox txtbuscarproveedor;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtidproducto;
+        private System.Windows.Forms.Label label5;
     }
 }

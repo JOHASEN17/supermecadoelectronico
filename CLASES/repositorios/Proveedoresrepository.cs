@@ -12,70 +12,81 @@ namespace supermecadoelectronico.CLASES.repositorios
 {
     public class Proveedoresrepository : IProveedorrepository
     {
-        private readonly SqlConnection _conexion;
+        private readonly string _cadenaConexion;
 
-        public Proveedoresrepository()
+        public Proveedoresrepository(string cadenaConexion)
         {
-            _conexion = dbConexionsingleton.Instancia;
+            _cadenaConexion = cadenaConexion;
         }
 
         public List<Proveedores> ObtenerTodos()
         {
             var lista = new List<Proveedores>();
-            var cmd = new SqlCommand("SP_listarprovedores", _conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
 
-            _conexion.Open();
-            var reader = cmd.ExecuteReader();
-            while (reader.Read())
+            using (var conn = new SqlConnection(_cadenaConexion))
+            using (var cmd = new SqlCommand("SP_listarprovedores", conn))
             {
-                lista.Add(new Proveedores
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
                 {
-                    IDProductos = Convert.ToInt32(reader["PRODUCTOID"]),
-                    Nombre = reader["NOMBRE"].ToString(),
-                    Contacto = reader["CONTACTO"].ToString(),
-                    ProveedorID = Convert.ToInt32(reader["IDPROVEEDOR"])
-                });
+                    while (reader.Read())
+                    {
+                        lista.Add(new Proveedores
+                        {
+                            IDProductos = Convert.ToInt32(reader["PRODUCTOID"]),
+                            Nombre = reader["NOMBRE"].ToString(),
+                            Contacto = reader["CONTACTO"].ToString(),
+                            ProveedorID = Convert.ToInt32(reader["PROVEDORID"])
+                        });
+                    }
+                }
             }
-            _conexion.Close();
+
             return lista;
         }
 
         public void Insertar(Proveedores proveedores)
         {
-            var cmd = new SqlCommand("sp_InsertarProveedor", _conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
-            cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
+            using (var conn = new SqlConnection(_cadenaConexion))
+            using (var cmd = new SqlCommand("sp_InsertarProveedor", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
+                cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
 
-            _conexion.Open();
-            cmd.ExecuteNonQuery();
-            _conexion.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void Actualizar(Proveedores proveedores)
         {
+            using (var conn = new SqlConnection(_cadenaConexion))
+            using (var cmd = new SqlCommand("SP_ActualizarProveedores", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
+                cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
 
-            var cmd = new SqlCommand("SP_ActualizarProveedores", _conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
-            cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
-
-            _conexion.Open();
-            cmd.ExecuteNonQuery();
-            _conexion.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void Eliminar(int id)
         {
-            var cmd = new SqlCommand("SP_ELIMARPROVEEDOR", _conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PROVEEDORID", id);
+            using (var conn = new SqlConnection(_cadenaConexion))
+            using (var cmd = new SqlCommand("SP_ELIMINARPROVEEDOR", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PROVEDORID", id);
 
-            _conexion.Open();
-            cmd.ExecuteNonQuery();
-            _conexion.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
         }
-
     }
+
 }
