@@ -62,6 +62,7 @@
     <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />
     <Compile Include="CLASES\repositorios\VentaService.cs" />
     <Compile Include="CLASES\services\AlertaService.cs" />
+    <Compile Include="CLASES\services\DevolucionService.cs" />
     <Compile Include="CLASES\services\ProductoServicio.cs" />
     <Compile Include="CLASES\services\VentaServicio.cs" />
     <Compile Include="CLASES\UnitOfWork\IUnitOfWork.cs" />
