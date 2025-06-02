@@ -62,7 +62,7 @@ namespace supermecadoelectronico
                     return;
                 }
 
-                ventaService.RegistrarVentas(carrito.Items);
+                _uow.VentasService.RegistrarVentas(carrito.Items);
 
                 MessageBox.Show("Venta registrada correctamente.");
 

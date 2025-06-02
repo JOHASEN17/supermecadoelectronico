@@ -24,7 +24,7 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
 
             ProductoRepository = new ProductoRepository();
             Proveedoresrepository = new Proveedoresrepository(_connectionString);
-           // VentasService = new VentasService(_connectionString);
+            VentasService = new VentaService(_connectionString);
             DevolucionRepository = new DevolucionRepository(_connectionString);
             AlertaRepository = new AlertaRepository(_connectionString);
 
