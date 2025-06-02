@@ -51,9 +51,12 @@
     <Compile Include="CLASES\Alerta.cs" />
     <Compile Include="CLASES\Carrito de compras\Carrito.cs" />
     <Compile Include="CLASES\Carrito de compras\ItemCarrito.cs" />
+    <Compile Include="CLASES\ObtenerHistorialComprasPorProveedor.cs" />
     <Compile Include="CLASES\Proveedores.cs" />
     <Compile Include="CLASES\repositorios\AlertaRepository.cs" />
+    <Compile Include="CLASES\repositorios\DevolucionRepository.cs" />
     <Compile Include="CLASES\repositorios\IAlertaRepository.cs" />
+    <Compile Include="CLASES\repositorios\IDevolucionRepository.cs" />
     <Compile Include="CLASES\repositorios\IProveedorrepository.cs" />
     <Compile Include="CLASES\repositorios\IVentasService.cs" />
     <Compile Include="CLASES\repositorios\Proveedoresrepository.cs" />

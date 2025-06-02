@@ -51,8 +51,12 @@
             this.dtgProductos = new System.Windows.Forms.DataGridView();
             this.dgvalertas = new System.Windows.Forms.DataGridView();
             this.btnventas = new System.Windows.Forms.Button();
+            this.cmbProveedores = new System.Windows.Forms.ComboBox();
+            this.dgvHistorialCompras = new System.Windows.Forms.DataGridView();
+            this.btnVerHistorialCompras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvalertas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbuscar
@@ -285,12 +289,47 @@
             this.btnventas.UseVisualStyleBackColor = false;
             this.btnventas.Click += new System.EventHandler(this.btnventas_Click);
             // 
+            // cmbProveedores
+            // 
+            this.cmbProveedores.FormattingEnabled = true;
+            this.cmbProveedores.Location = new System.Drawing.Point(1187, 30);
+            this.cmbProveedores.Name = "cmbProveedores";
+            this.cmbProveedores.Size = new System.Drawing.Size(121, 24);
+            this.cmbProveedores.TabIndex = 27;
+            this.cmbProveedores.SelectedIndexChanged += new System.EventHandler(this.cmbProveedores_SelectedIndexChanged);
+            // 
+            // dgvHistorialCompras
+            // 
+            this.dgvHistorialCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistorialCompras.Location = new System.Drawing.Point(849, 59);
+            this.dgvHistorialCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvHistorialCompras.Name = "dgvHistorialCompras";
+            this.dgvHistorialCompras.RowHeadersWidth = 51;
+            this.dgvHistorialCompras.RowTemplate.Height = 24;
+            this.dgvHistorialCompras.Size = new System.Drawing.Size(459, 188);
+            this.dgvHistorialCompras.TabIndex = 28;
+            // 
+            // btnVerHistorialCompras
+            // 
+            this.btnVerHistorialCompras.BackColor = System.Drawing.Color.Green;
+            this.btnVerHistorialCompras.Location = new System.Drawing.Point(691, 387);
+            this.btnVerHistorialCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVerHistorialCompras.Name = "btnVerHistorialCompras";
+            this.btnVerHistorialCompras.Size = new System.Drawing.Size(123, 30);
+            this.btnVerHistorialCompras.TabIndex = 29;
+            this.btnVerHistorialCompras.Text = "HISTORIAL";
+            this.btnVerHistorialCompras.UseVisualStyleBackColor = false;
+            this.btnVerHistorialCompras.Click += new System.EventHandler(this.btnVerHistorialCompras_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(873, 584);
+            this.ClientSize = new System.Drawing.Size(1334, 584);
+            this.Controls.Add(this.btnVerHistorialCompras);
+            this.Controls.Add(this.dgvHistorialCompras);
+            this.Controls.Add(this.cmbProveedores);
             this.Controls.Add(this.btnalertas);
             this.Controls.Add(this.dgvalertas);
             this.Controls.Add(this.lblTotal);
@@ -320,6 +359,7 @@
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvalertas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,6 +390,9 @@
         private System.Windows.Forms.DataGridView dgvalertas;
         private System.Windows.Forms.Button btnalertas;
         private System.Windows.Forms.Button btnventas;
+        private System.Windows.Forms.ComboBox cmbProveedores;
+        private System.Windows.Forms.DataGridView dgvHistorialCompras;
+        private System.Windows.Forms.Button btnVerHistorialCompras;
     }
 }
 

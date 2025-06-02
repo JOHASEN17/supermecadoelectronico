@@ -77,7 +77,7 @@ namespace supermecadoelectronico
             // 
             // txtproveedor
             // 
-            this.txtproveedor.Location = new System.Drawing.Point(61, 232);
+            this.txtproveedor.Location = new System.Drawing.Point(60, 298);
             this.txtproveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtproveedor.Name = "txtproveedor";
             this.txtproveedor.Size = new System.Drawing.Size(215, 22);
@@ -85,7 +85,7 @@ namespace supermecadoelectronico
             // 
             // txtcontacto
             // 
-            this.txtcontacto.Location = new System.Drawing.Point(61, 303);
+            this.txtcontacto.Location = new System.Drawing.Point(61, 232);
             this.txtcontacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtcontacto.Name = "txtcontacto";
             this.txtcontacto.Size = new System.Drawing.Size(215, 22);

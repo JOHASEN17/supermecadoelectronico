@@ -33,7 +33,7 @@ namespace supermecadoelectronico
             AplicarPermisos();
         }
 
-      
+
 
         private void CargarProductos()
         {
@@ -210,12 +210,12 @@ namespace supermecadoelectronico
         {
 
             Form ventasForm = new Ventas();
-           ventasForm.ShowDialog();
+            ventasForm.ShowDialog();
         }
 
-        
 
-       
+
+
 
         private void btnalertas_Click(object sender, EventArgs e)
         {
@@ -232,6 +232,71 @@ namespace supermecadoelectronico
         private void Form1_Load_1(object sender, EventArgs e)
         {
             CargarProductos();
+            CargarProveedores();
+        }
+
+
+        private void btnVerHistorialCompras_Click(object sender, EventArgs e)
+        {
+            if (cmbProveedores.SelectedValue != null)
+            {
+                int proveedorId = Convert.ToInt32(cmbProveedores.SelectedValue);
+                dgvHistorialCompras.DataSource = ObtenerHistorialComprasPorProveedor(proveedorId);
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un proveedor.");
+            }
+        }
+
+        private DataTable ObtenerHistorialComprasPorProveedor(int proveedorId)
+        {
+            using (SqlConnection conexion = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_ObtenerHistorialComprasProveedor", conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ProveedorID", proveedorId);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+        private void cmbProveedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargarProveedores()
+        {
+            using (SqlConnection conexion = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT PROVEDORID, NOMBRE FROM PROVEEDORES", conexion);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbProveedores.DataSource = dt;
+                cmbProveedores.DisplayMember = "NOMBRE";
+                cmbProveedores.ValueMember = "PROVEDORID";
+                cmbProveedores.SelectedIndex = -1; // Que no haya uno seleccionado por defecto
+            }
+        }
+
+        private void btnVerHistorialCompras_Click_1(object sender, EventArgs e)
+        {
+            if (cmbProveedores.SelectedValue != null)
+            {
+                int proveedorId = Convert.ToInt32(cmbProveedores.SelectedValue);
+                dgvHistorialCompras.DataSource = ObtenerHistorialComprasPorProveedor(proveedorId);
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un proveedor.");
+            }
         }
     }
 }
