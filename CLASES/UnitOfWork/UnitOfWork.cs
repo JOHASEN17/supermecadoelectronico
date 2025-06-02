@@ -14,7 +14,7 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
         private readonly string _connectionString;
         public IProductoRepository ProductoRepository { get; }
         public IProveedorrepository Proveedoresrepository { get; }
-        public IVentasService VentasService { get; }
+        public IVentasService VentaService { get; }
         public IDevolucionRepository DevolucionRepository { get; }
         public IAlertaRepository AlertaRepository { get; }
 
@@ -24,8 +24,8 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
 
             ProductoRepository = new ProductoRepository();
             Proveedoresrepository = new Proveedoresrepository(_connectionString);
-            VentasService = new VentaService(_connectionString);
-            DevolucionRepository = new DevolucionRepository(_connectionString);
+            VentaService = new VentaService(_connectionString);
+            DevolucionRepository = new DevolucionRepository();
             AlertaRepository = new AlertaRepository(_connectionString);
 
 

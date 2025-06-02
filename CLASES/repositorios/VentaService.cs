@@ -12,12 +12,45 @@ namespace supermecadoelectronico.CLASES.repositorios
 {
     public class VentaService : IVentasService
     {
-        private readonly string _connectionString;
+        private readonly string _connectionString = "Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"; 
+
 
         public VentaService(string connectionString)
         {
             _connectionString = connectionString;
         }
+
+        public List<Venta> ObtenerTodos()
+        {
+            var lista = new List<Venta>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var cmd = new SqlCommand("sp_ListarVentas", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lista.Add(new Venta
+                    {
+                        Id = Convert.ToInt32(reader["VENTAID"]),
+                        IdProducto = Convert.ToInt32(reader["PRODUCTOID"]), 
+                        PrecioUnitario = Convert.ToDecimal(reader["PRECIODEVENTA"]),
+                        FechaVenta = Convert.ToDateTime(reader["FECHADEVENTA"]),
+                        Cantidad = Convert.ToInt32(reader["CANTIDAD"])
+                    });
+                }
+
+                connection.Close(); 
+            }
+
+            return lista;
+        }
+
+
         public void RegistrarVenta(ItemCarrito item)
         {
             using (var conn = new SqlConnection(_connectionString))

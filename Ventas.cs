@@ -62,7 +62,7 @@ namespace supermecadoelectronico
                     return;
                 }
 
-                _uow.VentasService.RegistrarVentas(carrito.Items);
+                _uow.VentaService.RegistrarVentas(carrito.Items);
 
                 MessageBox.Show("Venta registrada correctamente.");
 
@@ -181,6 +181,12 @@ namespace supermecadoelectronico
             {
                 MessageBox.Show("Selecciona un producto del carrito para eliminar.");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Devoluciones Ventas = new Devoluciones();
+            Ventas.Show();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using supermecadoelectronico.CLASES.utils;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,26 +11,24 @@ namespace supermecadoelectronico.CLASES.repositorios
 {
     public class DevolucionRepository : IDevolucionRepository
     {
-        private readonly string _connectionString;
+        private readonly SqlConnection _connection;
 
-        public DevolucionRepository(string connectionString)
+        public DevolucionRepository()
         {
-            _connectionString = connectionString;
+            _connection = dbConexionsingleton.Instancia;
         }
 
-        public void RegistrarDevolucion(int ventaId, int productoId, int cantidad)
+        public void RegistrarDevolucion(Devolucion devolucion)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                SqlCommand cmd = new SqlCommand("SP_RegistrarDevolucion", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@VentaID", ventaId);
-                cmd.Parameters.AddWithValue("@ProductoID", productoId);
-                cmd.Parameters.AddWithValue("@Cantidad", cantidad);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
+            var cmd = new SqlCommand("SP_RegistrarDevolucion", _connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ProductoID", devolucion.IdProducto);
+            cmd.Parameters.AddWithValue("@CantidadDevuelta", devolucion.CantidadDevuelta);
+            cmd.Parameters.AddWithValue("@Motivo", devolucion.Motivo);
+
+            _connection.Open();
+            cmd.ExecuteNonQuery();
+            _connection.Close();
         }
     }
-
 }

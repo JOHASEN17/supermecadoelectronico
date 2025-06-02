@@ -9,6 +9,7 @@ namespace supermecadoelectronico.CLASES.repositorios
 {
     public interface IVentasService
     {
+        List<Venta> ObtenerTodos();
         void RegistrarVentas(List<ItemCarrito> items);
     }
 }

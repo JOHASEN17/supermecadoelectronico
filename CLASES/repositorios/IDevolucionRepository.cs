@@ -8,6 +8,6 @@ namespace supermecadoelectronico.CLASES.repositorios
 {
     public interface IDevolucionRepository
     {
-        void RegistrarDevolucion(int ventaId, int productoId, int cantidad);
+        void RegistrarDevolucion(Devolucion devolucion);
     }
 }

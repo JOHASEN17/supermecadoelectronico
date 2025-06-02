@@ -14,7 +14,7 @@ namespace supermecadoelectronico.CLASES.UnitOfWork
 
         IProveedorrepository Proveedoresrepository { get; }
 
-        IVentasService VentasService { get; }
+        IVentasService VentaService { get; }
         IDevolucionRepository DevolucionRepository { get; }
         IAlertaRepository AlertaRepository { get; }
 

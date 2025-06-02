@@ -16,9 +16,9 @@ namespace supermecadoelectronico.CLASES.services
             _repo = repo;
         }
 
-        public void RegistrarDevolucion(int ventaId, int productoId, int cantidad)
+        public void RegistrarDevolucion(Devolucion devolucion)
         {
-            _repo.RegistrarDevolucion(ventaId, productoId, cantidad);
+            _repo.RegistrarDevolucion(devolucion);
         }
     }
 }
