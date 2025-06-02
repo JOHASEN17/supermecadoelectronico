@@ -52,7 +52,7 @@
             // 
             // btnDevolver
             // 
-            this.btnDevolver.Location = new System.Drawing.Point(102, 317);
+            this.btnDevolver.Location = new System.Drawing.Point(92, 303);
             this.btnDevolver.Name = "btnDevolver";
             this.btnDevolver.Size = new System.Drawing.Size(167, 52);
             this.btnDevolver.TabIndex = 1;

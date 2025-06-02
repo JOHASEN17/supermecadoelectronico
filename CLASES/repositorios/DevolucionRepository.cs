@@ -22,8 +22,9 @@ namespace supermecadoelectronico.CLASES.repositorios
         {
             var cmd = new SqlCommand("SP_RegistrarDevolucion", _connection);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@VentaID", devolucion.Id);
             cmd.Parameters.AddWithValue("@ProductoID", devolucion.IdProducto);
-            cmd.Parameters.AddWithValue("@CantidadDevuelta", devolucion.CantidadDevuelta);
+            cmd.Parameters.AddWithValue("@Cantidad", devolucion.CantidadDevuelta);
             cmd.Parameters.AddWithValue("@Motivo", devolucion.Motivo);
 
             _connection.Open();

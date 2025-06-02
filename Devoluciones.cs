@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,11 +39,11 @@ namespace supermecadoelectronico
         private void btnDevolver_Click(object sender, EventArgs e)
         {
 
-            if (!esAdmin)
+           /* if (!esAdmin)
             {
                 MessageBox.Show("Solo un administrador puede autorizar devoluciones.");
                 return;
-            }
+            }*/
 
             if (!int.TryParse(txtProductoID.Text, out int idProducto) ||
                 !int.TryParse(txtCantidad.Text, out int cantidad) ||
@@ -73,5 +74,7 @@ namespace supermecadoelectronico
         {
 
         }
+
+        
     }
 }
