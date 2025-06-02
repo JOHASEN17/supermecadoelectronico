@@ -37,8 +37,15 @@ namespace supermecadoelectronico
 
         private void CargarProductos()
         {
-            dtgProductos.DataSource = _uow.ProductoRepository.ObtenerTodos();
-            dtgProductos.ClearSelection();
+            try
+            {
+                dtgProductos.DataSource = _uow.ProductoRepository.ObtenerTodos();
+                dtgProductos.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar productos: " + ex.Message);
+            }
         }
 
         private void AplicarPermisos()

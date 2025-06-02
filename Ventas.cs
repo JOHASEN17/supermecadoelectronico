@@ -2,6 +2,7 @@
 using supermecadoelectronico.CLASES.Carrito_de_compras;
 using supermecadoelectronico.CLASES.repositorios;
 using supermecadoelectronico.CLASES.services;
+using supermecadoelectronico.CLASES.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace supermecadoelectronico
 {
     public partial class Ventas : Form
     {
+        private readonly IUnitOfWork _uow = new UnitOfWork();
         private readonly ProductoServicio productoService = new ProductoServicio();
         private Carrito carrito = new Carrito();
 
@@ -36,8 +38,8 @@ namespace supermecadoelectronico
         {
             try
             {
-                var productos = productoService.ListarProductos();
-                dtgProductos.DataSource = productos;
+                dtgProductos.DataSource = _uow.ProductoRepository.ObtenerTodos();
+                dtgProductos.ClearSelection();
             }
             catch (Exception ex)
             {

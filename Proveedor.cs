@@ -18,6 +18,7 @@ namespace supermecadoelectronico
 {
     public partial class Proveedor : Form
     {
+        private readonly IUnitOfWork _uow = new UnitOfWork();
         private readonly Proveedoresrepository _repo;
         private int? productoSeleccionadoId = null;
 
@@ -35,8 +36,15 @@ namespace supermecadoelectronico
 
         private void CargarProductos()
         {
-            dgvProveedor.DataSource = _repo.ObtenerTodos();
-            dgvProveedor.ClearSelection();
+            try
+            {
+                dgvProveedor.DataSource = _uow.Proveedoresrepository.ObtenerTodos();
+                dgvProveedor.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar productos: " + ex.Message);
+            }
         }
 
         private void LimpiarCampos()
@@ -66,7 +74,7 @@ namespace supermecadoelectronico
                     Nombre = txtproveedor.Text
                 };
 
-                _repo.Insertar(proveedores); // Uso directo del repositorio
+                _uow.Proveedoresrepository.Insertar(proveedores); // Uso directo del repositorio
                 CargarProductos();
                 LimpiarCampos();
             }
@@ -83,7 +91,7 @@ namespace supermecadoelectronico
                     Nombre = txtproveedor.Text
                 };
 
-                _repo.Actualizar(proveedores);
+                _uow.Proveedoresrepository.Actualizar(proveedores);
                 CargarProductos();
                 LimpiarCampos();
             }
@@ -100,7 +108,7 @@ namespace supermecadoelectronico
                 var confirm = MessageBox.Show("¿Estás seguro de eliminar este proveedor?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
-                    _repo.Eliminar(proveedorId);
+                    _uow.Proveedoresrepository.Eliminar(proveedorId);
                     CargarProductos();
                     LimpiarCampos();
                 }
