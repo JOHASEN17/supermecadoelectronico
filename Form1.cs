@@ -93,6 +93,8 @@ namespace supermecadoelectronico
                     _uow.ProductoRepository.Insertar(producto);
                     CargarProductos();
                     LimpiarCampos();
+
+                    MessageBox.Show("Producto agregado correctamente.");
                 }
             }
             catch (Exception ex)

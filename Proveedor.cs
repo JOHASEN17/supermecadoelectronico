@@ -84,10 +84,12 @@ namespace supermecadoelectronico
 
                 };
 
-                _uow.Proveedoresrepository.Insertar(proveedores); // Uso directo del repositorio
+                _uow.Proveedoresrepository.Insertar(proveedores); 
                 CargarProductos();
                 LimpiarCampos();
-            }
+
+                MessageBox.Show("Proveedor guardado correctamente.");
+                }
             }
             catch (Exception ex)
             {
