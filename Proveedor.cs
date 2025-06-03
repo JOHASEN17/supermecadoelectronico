@@ -59,7 +59,7 @@ namespace supermecadoelectronico
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtcontacto.Text) || string.IsNullOrWhiteSpace(txtproveedor.Text))
+                if (string.IsNullOrWhiteSpace(txtcontacto.Text) || string.IsNullOrWhiteSpace(txtproveedor.Text)|| string.IsNullOrWhiteSpace(txtidproducto.Text))
                 {
                     MessageBox.Show("Por favor, completa todos los campos.");
                     return false;
