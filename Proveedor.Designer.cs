@@ -38,7 +38,6 @@ namespace supermecadoelectronico
             this.btnbuscarp = new System.Windows.Forms.Button();
             this.btnelimanrp = new System.Windows.Forms.Button();
             this.btnactualizarp = new System.Windows.Forms.Button();
-            this.btnform1 = new System.Windows.Forms.Button();
             this.txtbuscarproveedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtidproducto = new System.Windows.Forms.TextBox();
@@ -148,17 +147,6 @@ namespace supermecadoelectronico
             this.btnactualizarp.UseVisualStyleBackColor = false;
             this.btnactualizarp.Click += new System.EventHandler(this.btnactualizarp_Click);
             // 
-            // btnform1
-            // 
-            this.btnform1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnform1.Location = new System.Drawing.Point(655, 379);
-            this.btnform1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnform1.Name = "btnform1";
-            this.btnform1.Size = new System.Drawing.Size(109, 39);
-            this.btnform1.TabIndex = 10;
-            this.btnform1.Text = "PEDIDOS";
-            this.btnform1.UseVisualStyleBackColor = false;
-            // 
             // txtbuscarproveedor
             // 
             this.txtbuscarproveedor.Location = new System.Drawing.Point(61, 91);
@@ -203,7 +191,6 @@ namespace supermecadoelectronico
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtbuscarproveedor);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnform1);
             this.Controls.Add(this.btnactualizarp);
             this.Controls.Add(this.btnelimanrp);
             this.Controls.Add(this.btnbuscarp);
@@ -236,7 +223,6 @@ namespace supermecadoelectronico
         private System.Windows.Forms.Button btnbuscarp;
         private System.Windows.Forms.Button btnelimanrp;
         private System.Windows.Forms.Button btnactualizarp;
-        private System.Windows.Forms.Button btnform1;
         private System.Windows.Forms.TextBox txtbuscarproveedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtidproducto;

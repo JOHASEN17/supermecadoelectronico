@@ -23,17 +23,10 @@ namespace supermecadoelectronico
         private int? productoSeleccionadoId = null;
         private Carrito carrito = new Carrito();
 
-        
-
         public Form1()
         {
-            InitializeComponent();
-           
-
-            
+            InitializeComponent();            
         }
-
-
 
         private void CargarProductos()
         {
@@ -61,74 +54,103 @@ namespace supermecadoelectronico
 
         private bool ValidarCampos()
         {
-            if (string.IsNullOrWhiteSpace(txtmarca.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text) || string.IsNullOrWhiteSpace(txtcantidad.Text) || string.IsNullOrWhiteSpace(txtModelo.Text))
+            try
             {
-                MessageBox.Show("Por favor, completa todos los campos.");
+                if (string.IsNullOrWhiteSpace(txtmarca.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text) || string.IsNullOrWhiteSpace(txtcantidad.Text) || string.IsNullOrWhiteSpace(txtModelo.Text))
+                {
+                    MessageBox.Show("Por favor, completa todos los campos.");
+                    return false;
+                }
+                if (!decimal.TryParse(txtPrecio.Text, out _) || !int.TryParse(txtcantidad.Text, out _))
+                {
+                    MessageBox.Show("El precio y el stock deben ser números válidos.");
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar campos: " + ex.Message);
                 return false;
             }
-            if (!decimal.TryParse(txtPrecio.Text, out _) || !int.TryParse(txtcantidad.Text, out _))
-            {
-                MessageBox.Show("El precio y el stock deben ser números válidos.");
-                return false;
-            }
-            return true;
         }
 
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            try
             {
-                var producto = new Productos
+                if (ValidarCampos())
                 {
-                    Marca = txtmarca.Text,
-                    Modelo = txtModelo.Text,
-                    Precio = decimal.Parse(txtPrecio.Text),
-                    Cantidad = int.Parse(txtcantidad.Text)
-                };
+                    var producto = new Productos
+                    {
+                        Marca = txtmarca.Text,
+                        Modelo = txtModelo.Text,
+                        Precio = decimal.Parse(txtPrecio.Text),
+                        Cantidad = int.Parse(txtcantidad.Text)
+                    };
 
-                _uow.ProductoRepository.Insertar(producto);
-                CargarProductos();
-                LimpiarCampos();
+                    _uow.ProductoRepository.Insertar(producto);
+                    CargarProductos();
+                    LimpiarCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar producto: " + ex.Message);
             }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (productoSeleccionadoId.HasValue && ValidarCampos())
+            try
             {
-                var producto = new Productos
+                if (productoSeleccionadoId.HasValue && ValidarCampos())
                 {
-                    IDProductos = productoSeleccionadoId.Value,
-                    Marca = txtmarca.Text,
-                    Modelo = txtModelo.Text,
-                    Precio = decimal.Parse(txtPrecio.Text),
-                    Cantidad = int.Parse(txtcantidad.Text)
-                };
+                    var producto = new Productos
+                    {
+                        IDProductos = productoSeleccionadoId.Value,
+                        Marca = txtmarca.Text,
+                        Modelo = txtModelo.Text,
+                        Precio = decimal.Parse(txtPrecio.Text),
+                        Cantidad = int.Parse(txtcantidad.Text)
+                    };
 
-                _uow.ProductoRepository.Actualizar(producto);
-                CargarProductos();
-                LimpiarCampos();
+                    MessageBox.Show("se actualizo perfectamente.");
 
-
+                    _uow.ProductoRepository.Actualizar(producto);
+                    CargarProductos();
+                    LimpiarCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar producto: " + ex.Message);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtbuscar.Text, out int productoId))
+            try
             {
-                var confirm = MessageBox.Show("¿Estás seguro de eliminar este producto?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
+                if (int.TryParse(txtbuscar.Text, out int productoId))
                 {
-                    _uow.ProductoRepository.Eliminar(productoId);
-                    CargarProductos();
-                    LimpiarCampos();
+                    var confirm = MessageBox.Show("¿Estás seguro de eliminar este producto?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (confirm == DialogResult.Yes)
+                    {
+                        _uow.ProductoRepository.Eliminar(productoId);
+                        CargarProductos();
+                        LimpiarCampos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa un ID válido en el campo de búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, ingresa un ID válido en el campo de búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al eliminar producto: " + ex.Message);
             }
         }
 
@@ -152,69 +174,62 @@ namespace supermecadoelectronico
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            int id;
-            if (int.TryParse(txtbuscar.Text, out id))
+            try
             {
-                using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
+                int id;
+                if (int.TryParse(txtbuscar.Text, out id))
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCTOS WHERE PRODUCTOID = @id", conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
                     {
-                        txtmarca.Text = reader["Marca"].ToString();
-                        txtModelo.Text = reader["Modelo"].ToString();
-                        txtPrecio.Text = reader["Precio"].ToString();
-                        txtcantidad.Text = reader["cantidadinventario"].ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Producto no encontrado.");
-                    }
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCTOS WHERE PRODUCTOID = @id", conn);
+                        cmd.Parameters.AddWithValue("@id", id);
 
-                    reader.Close();
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            txtmarca.Text = reader["Marca"].ToString();
+                            txtModelo.Text = reader["Modelo"].ToString();
+                            txtPrecio.Text = reader["Precio"].ToString();
+                            txtcantidad.Text = reader["cantidadinventario"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producto no encontrado.");
+                        }
+
+                        reader.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un ID válido.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Ingrese un ID válido.");
+                MessageBox.Show("Error al buscar producto: " + ex.Message);
             }
         }
-
-        private void btnVerReportes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnproveedor_Click(object sender, EventArgs e)
-        {
-            Proveedor Form1 = new Proveedor();
-            Form1.Show();
-        }
-
-        private void btnventas_Click(object sender, EventArgs e)
-        {
-
-         
-        }
-
-
-
-
 
         private void btnalertas_Click(object sender, EventArgs e)
         {
-            string cs = "Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True";
-            IAlertaRepository alertaRepo = new AlertaRepository(cs);
-            AlertaService servicio = new AlertaService(alertaRepo);
+            try
+            {
+                string cs = "Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True";
+                IAlertaRepository alertaRepo = new AlertaRepository(cs);
+                AlertaService servicio = new AlertaService(alertaRepo);
 
-            servicio.EjecutarVerificacion();
+                servicio.EjecutarVerificacion();
 
-            var alertas = servicio.ConsultarAlertas();
-            dgvalertas.DataSource = alertas;
+                var alertas = servicio.ConsultarAlertas();
+                dgvalertas.DataSource = alertas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar alertas: " + ex.Message);
+            }
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -223,19 +238,6 @@ namespace supermecadoelectronico
             CargarProveedores();
         }
 
-
-        private void btnVerHistorialCompras_Click(object sender, EventArgs e)
-        {
-            if (cmbProveedores.SelectedValue != null)
-            {
-                int proveedorId = Convert.ToInt32(cmbProveedores.SelectedValue);
-                dgvHistorialCompras.DataSource = ObtenerHistorialComprasPorProveedor(proveedorId);
-            }
-            else
-            {
-                MessageBox.Show("Selecciona un proveedor.");
-            }
-        }
 
         private DataTable ObtenerHistorialComprasPorProveedor(int proveedorId)
         {
@@ -270,7 +272,7 @@ namespace supermecadoelectronico
                 cmbProveedores.DataSource = dt;
                 cmbProveedores.DisplayMember = "NOMBRE";
                 cmbProveedores.ValueMember = "PROVEDORID";
-                cmbProveedores.SelectedIndex = -1; // Que no haya uno seleccionado por defecto
+                cmbProveedores.SelectedIndex = -1;
             }
         }
 
@@ -286,5 +288,11 @@ namespace supermecadoelectronico
                 MessageBox.Show("Selecciona un proveedor.");
             }
         }
+
+        private void dgvHistorialCompras_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }

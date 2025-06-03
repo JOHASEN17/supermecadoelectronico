@@ -282,6 +282,7 @@
             this.dgvHistorialCompras.RowTemplate.Height = 24;
             this.dgvHistorialCompras.Size = new System.Drawing.Size(459, 188);
             this.dgvHistorialCompras.TabIndex = 28;
+            this.dgvHistorialCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellContentClick);
             // 
             // btnVerHistorialCompras
             // 
