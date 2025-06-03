@@ -19,7 +19,7 @@ namespace supermecadoelectronico
 {
     public partial class Form1 : Form
     {
-        private readonly IUnitOfWork _uow = new UnitOfWork(); // Aquí usamos Unit of Work
+        private readonly IUnitOfWork _uow = new UnitOfWork();
         private int? productoSeleccionadoId = null;
         private Carrito carrito = new Carrito();
 

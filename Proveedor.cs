@@ -49,6 +49,7 @@ namespace supermecadoelectronico
 
         private void LimpiarCampos()
         {
+            txtidproducto.Clear();
             txtcontacto.Clear();
             txtproveedor.Clear();
             dgvProveedor.ClearSelection();
@@ -81,6 +82,7 @@ namespace supermecadoelectronico
                 {
                     Contacto = txtcontacto.Text,
                     Nombre = txtproveedor.Text,
+                    IDProductos = int.Parse(txtidproducto.Text)
 
                 };
 
