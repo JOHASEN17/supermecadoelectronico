@@ -111,13 +111,13 @@ namespace supermecadoelectronico
                 if (usuario.Rol == "Admin")
                 {
                    
-                    new Form1(true).Show(); // acceso completo 
+                    new Ventas(true).Show(); // acceso completo 
                     
                 }
                 else if (usuario.Rol == "Empleado")
                 {
                     
-                    new Form1(false).Show(); // acceso limitado
+                    new Ventas(false).Show(); // acceso limitado
                     
                 }
             }

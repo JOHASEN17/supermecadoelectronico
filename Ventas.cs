@@ -22,18 +22,32 @@ namespace supermecadoelectronico
         private readonly ProductoServicio productoService = new ProductoServicio();
         private Carrito carrito = new Carrito();
 
-
-        public Ventas()
+        private bool esAdmin;
+        public Ventas(bool esAdmin)
         {
             InitializeComponent();
             CargarProductosGrid();
-
+            this.esAdmin = esAdmin;
+            AplicarPermisos();
+          
         }
 
-        private void AplicarPermisos()
+       private void AplicarPermisos()
         {
-           
+            if (!esAdmin)
+            {
+                // Ocultar o deshabilitar funciones que solo un administrador puede usar
+                btndevoluciones.Visible = false;
+                btnpedidos.Visible = false;
+                btnprovedor.Visible = false;
+
+
+                lblmd.Text = esAdmin ? "Modo Administrador" : "Modo Empleado";
+                lblmd.ForeColor = esAdmin ? Color.Green : Color.DarkOrange;
+
+            }
         }
+      
         private void CargarProductosGrid()
         {
             try
@@ -186,6 +200,18 @@ namespace supermecadoelectronico
         private void button2_Click(object sender, EventArgs e)
         {
             Devoluciones Ventas = new Devoluciones();
+            Ventas.Show();
+        }
+
+        private void btnpedidos_Click(object sender, EventArgs e)
+        {
+            Form1 Ventas = new Form1();
+            Ventas.Show();
+        }
+
+        private void btnprovedor_Click(object sender, EventArgs e)
+        {
+            Proveedor Ventas = new Proveedor();
             Ventas.Show();
         }
     }
