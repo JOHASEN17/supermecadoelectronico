@@ -46,11 +46,9 @@
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnlimpiar = new System.Windows.Forms.Button();
-            this.btnproveedor = new System.Windows.Forms.Button();
             this.btnalertas = new System.Windows.Forms.Button();
             this.dtgProductos = new System.Windows.Forms.DataGridView();
             this.dgvalertas = new System.Windows.Forms.DataGridView();
-            this.btnventas = new System.Windows.Forms.Button();
             this.cmbProveedores = new System.Windows.Forms.ComboBox();
             this.dgvHistorialCompras = new System.Windows.Forms.DataGridView();
             this.btnVerHistorialCompras = new System.Windows.Forms.Button();
@@ -230,18 +228,6 @@
             this.btnlimpiar.UseVisualStyleBackColor = false;
             this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             // 
-            // btnproveedor
-            // 
-            this.btnproveedor.BackColor = System.Drawing.Color.Yellow;
-            this.btnproveedor.Location = new System.Drawing.Point(691, 496);
-            this.btnproveedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnproveedor.Name = "btnproveedor";
-            this.btnproveedor.Size = new System.Drawing.Size(123, 30);
-            this.btnproveedor.TabIndex = 20;
-            this.btnproveedor.Text = "PROVEEDOR";
-            this.btnproveedor.UseVisualStyleBackColor = false;
-            this.btnproveedor.Click += new System.EventHandler(this.btnproveedor_Click);
-            // 
             // btnalertas
             // 
             this.btnalertas.BackColor = System.Drawing.Color.Red;
@@ -276,18 +262,6 @@
             this.dgvalertas.RowTemplate.Height = 24;
             this.dgvalertas.Size = new System.Drawing.Size(499, 188);
             this.dgvalertas.TabIndex = 25;
-            // 
-            // btnventas
-            // 
-            this.btnventas.BackColor = System.Drawing.Color.Green;
-            this.btnventas.Location = new System.Drawing.Point(691, 462);
-            this.btnventas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnventas.Name = "btnventas";
-            this.btnventas.Size = new System.Drawing.Size(123, 30);
-            this.btnventas.TabIndex = 21;
-            this.btnventas.Text = "VENDER";
-            this.btnventas.UseVisualStyleBackColor = false;
-            this.btnventas.Click += new System.EventHandler(this.btnventas_Click);
             // 
             // cmbProveedores
             // 
@@ -333,8 +307,6 @@
             this.Controls.Add(this.btnalertas);
             this.Controls.Add(this.dgvalertas);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnventas);
-            this.Controls.Add(this.btnproveedor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtbuscar);
             this.Controls.Add(this.btnbuscar);
@@ -385,11 +357,9 @@
         private System.Windows.Forms.Button btnlimpiar;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblModo;
-        private System.Windows.Forms.Button btnproveedor;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridView dgvalertas;
         private System.Windows.Forms.Button btnalertas;
-        private System.Windows.Forms.Button btnventas;
         private System.Windows.Forms.ComboBox cmbProveedores;
         private System.Windows.Forms.DataGridView dgvHistorialCompras;
         private System.Windows.Forms.Button btnVerHistorialCompras;
