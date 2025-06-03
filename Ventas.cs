@@ -36,18 +36,21 @@ namespace supermecadoelectronico
         {
             if (!esAdmin)
             {
-                // Ocultar o deshabilitar funciones que solo un administrador puede usar
+
                 btndevoluciones.Visible = false;
                 btnpedidos.Visible = false;
                 btnprovedor.Visible = false;
-
-
-                lblmd.Text = esAdmin ? "Modo Administrador" : "Modo Empleado";
-                lblmd.ForeColor = esAdmin ? Color.Green : Color.DarkOrange;
+                lblmd.Text = "Modo Empleado";
+                lblmd.ForeColor = Color.Green;
 
             }
+            else
+            {
+                lblmd.Text = "Modo Administrador";
+                lblmd.ForeColor = Color.Green;
+            }
         }
-      
+
         private void CargarProductosGrid()
         {
             try
@@ -101,68 +104,82 @@ namespace supermecadoelectronico
 
         private void btnagrrgaralcarrito_Click(object sender, EventArgs e)
         {
-            decimal precio = decimal.Parse(txtPrecio.Text);
-
-            if (dtgProductos.CurrentRow == null)
+            try
             {
-                MessageBox.Show("Selecciona un producto.");
-                return;
+                decimal precio = decimal.Parse(txtPrecio.Text);
+
+                if (dtgProductos.CurrentRow == null)
+                {
+                    MessageBox.Show("Selecciona un producto.");
+                    return;
+                }
+
+                string modelo = dtgProductos.CurrentRow.Cells["Modelo"].Value?.ToString().Trim();
+                string marca = dtgProductos.CurrentRow.Cells["Marca"].Value?.ToString().Trim();
+
+
+                if (!int.TryParse(txtcantidad.Text, out int cantidad))
+                {
+                    MessageBox.Show("Cantidad inválida.");
+                    return;
+                }
+
+                if (!int.TryParse(txtbuscar.Text, out int productoid))
+                {
+                    MessageBox.Show("Cantidad inválida.");
+                    return;
+                }
+
+
+                carrito.AgregarItem(modelo, marca, cantidad, precio, productoid);
+                ActualizarVistaCarrito();
             }
-
-            string modelo = dtgProductos.CurrentRow.Cells["Modelo"].Value?.ToString().Trim();
-            string marca = dtgProductos.CurrentRow.Cells["Marca"].Value?.ToString().Trim();
-
-
-            if (!int.TryParse(txtcantidad.Text, out int cantidad))
+            catch (Exception ex)
             {
-                MessageBox.Show("Cantidad inválida.");
-                return;
+                MessageBox.Show("agregar un producto a al carrito" + ex.Message);
             }
-
-            if (!int.TryParse(txtbuscar.Text, out int productoid))
-            {
-                MessageBox.Show("Cantidad inválida.");
-                return;
-            }
-
-
-            carrito.AgregarItem(modelo, marca, cantidad, precio, productoid);
-            ActualizarVistaCarrito();
         }
 
-       
+
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            int id;
-            if (int.TryParse(txtbuscar.Text, out id))
+            try
             {
-                using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
+                int id;
+                if (int.TryParse(txtbuscar.Text, out id))
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCTOS WHERE PRODUCTOID = @id", conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
                     {
-                        txtmarca.Text = reader["Marca"].ToString();
-                        txtModelo.Text = reader["Modelo"].ToString();
-                        txtPrecio.Text = reader["Precio"].ToString();
-                        txtcantidad.Text = reader["cantidadinventario"].ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Producto no encontrado.");
-                    }
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCTOS WHERE PRODUCTOID = @id", conn);
+                        cmd.Parameters.AddWithValue("@id", id);
 
-                    reader.Close();
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            txtmarca.Text = reader["Marca"].ToString();
+                            txtModelo.Text = reader["Modelo"].ToString();
+                            txtPrecio.Text = reader["Precio"].ToString();
+                            txtcantidad.Text = reader["cantidadinventario"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producto no encontrado.");
+                        }
+
+                        reader.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un ID válido.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Ingrese un ID válido.");
+                MessageBox.Show("Error al buscar producto: " + ex.Message);
             }
         }
 
@@ -184,6 +201,7 @@ namespace supermecadoelectronico
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
+            try { 
             if (dgvcarrito.CurrentRow != null)
             {
                 int idProducto = (int)dgvcarrito.CurrentRow.Cells["Productoid"].Value;
@@ -194,6 +212,11 @@ namespace supermecadoelectronico
             else
             {
                 MessageBox.Show("Selecciona un producto del carrito para eliminar.");
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar del carrito: " + ex.Message);
             }
         }
 
