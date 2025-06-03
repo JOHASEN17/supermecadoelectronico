@@ -56,48 +56,70 @@ namespace supermecadoelectronico
 
         private bool ValidarCampos()
         {
-            if (string.IsNullOrWhiteSpace(txtcontacto.Text) || string.IsNullOrWhiteSpace(txtproveedor.Text))
+            try
             {
-                MessageBox.Show("Por favor, completa todos los campos.");
+                if (string.IsNullOrWhiteSpace(txtcontacto.Text) || string.IsNullOrWhiteSpace(txtproveedor.Text))
+                {
+                    MessageBox.Show("Por favor, completa todos los campos.");
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al validar campos: " + ex.Message);
                 return false;
             }
-            return true;
         }
 
         private void btnguardarp_Click(object sender, EventArgs e)
         {
+            try { 
             if (ValidarCampos())
             {
                 var proveedores = new Proveedores()
                 {
                     Contacto = txtcontacto.Text,
-                    Nombre = txtproveedor.Text
+                    Nombre = txtproveedor.Text,
+
                 };
 
                 _uow.Proveedoresrepository.Insertar(proveedores); // Uso directo del repositorio
                 CargarProductos();
                 LimpiarCampos();
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar proveedor: " + ex.Message);
+            }
         }
 
         private void btnactualizarp_Click(object sender, EventArgs e)
         {
-            if (productoSeleccionadoId.HasValue && ValidarCampos())
+            try
             {
-                var proveedores = new Proveedores()
+                if (productoSeleccionadoId.HasValue && ValidarCampos())
                 {
-                    ProveedorID = productoSeleccionadoId.Value,
-                    Contacto = txtcontacto.Text,
-                    Nombre = txtproveedor.Text
-                };
+                    var proveedores = new Proveedores()
+                    {
+                        ProveedorID = productoSeleccionadoId.Value,
+                        Contacto = txtcontacto.Text,
+                        Nombre = txtproveedor.Text
+                    };
 
-                _uow.Proveedoresrepository.Actualizar(proveedores);
-                CargarProductos();
-                LimpiarCampos();
+                    _uow.Proveedoresrepository.Actualizar(proveedores);
+                    CargarProductos();
+                    LimpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona un proveedor para actualizar.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Selecciona un proveedor para actualizar.");
+                MessageBox.Show("Error al actualizar proveedor: " + ex.Message);
             }
         }
 
@@ -123,34 +145,41 @@ namespace supermecadoelectronico
 
         private void btnbuscarp_Click_1(object sender, EventArgs e)
         {
-            int id;
-            if (int.TryParse(txtbuscarproveedor.Text, out id))
+            try
             {
-                using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
+                int id;
+                if (int.TryParse(txtbuscarproveedor.Text, out id))
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM PROVEEDORES WHERE PROVEDORID = @id", conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlConnection conn = new SqlConnection("Data Source=LAPTOP-CG8J6ADN\\SQLEXPRESS;Initial Catalog=SUPERMERCADO;Integrated Security=True; TrustServerCertificate=True"))
                     {
-                        txtproveedor.Text = reader["Nombre"].ToString();
-                        txtcontacto.Text = reader["Contacto"].ToString();
-                        txtidproducto.Text = reader["productoid"].ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Producto no encontrado.");
-                    }
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM PROVEEDORES WHERE PROVEDORID = @id", conn);
+                        cmd.Parameters.AddWithValue("@id", id);
 
-                    reader.Close();
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            txtproveedor.Text = reader["Nombre"].ToString();
+                            txtcontacto.Text = reader["Contacto"].ToString();
+                            txtidproducto.Text = reader["productoid"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Producto no encontrado.");
+                        }
+
+                        reader.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un ID válido.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Ingrese un ID válido.");
+                MessageBox.Show("Error al buscar proveedor: " + ex.Message);
             }
         }
     }

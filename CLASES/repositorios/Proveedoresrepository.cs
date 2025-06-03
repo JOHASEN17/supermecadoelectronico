@@ -55,6 +55,7 @@ namespace supermecadoelectronico.CLASES.repositorios
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
                 cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
+               
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -69,6 +70,7 @@ namespace supermecadoelectronico.CLASES.repositorios
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@NOMBRE", proveedores.Nombre);
                 cmd.Parameters.AddWithValue("@CONTACTO", proveedores.Contacto);
+               
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
